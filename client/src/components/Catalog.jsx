@@ -1,24 +1,40 @@
 import { Link } from "react-router-dom";
+import { useState, useEffect } from "react";
 
 export const Catalog = () => {
+    const [allCars, setAllCars] = useState([]);
+
+    useEffect(() => {
+        fetch('http://localhost:3030/jsonstore/users')
+            .then(res => res.json())
+            .then(data => setAllCars(Object.values(data)));
+    }, []);
+
+    console.log(allCars)
+
     return (
         <div className="panel-wrap">
             <div className="top-content">
                 <h1>Aliquam arcu arcu aliquam eu</h1>
             </div>
             <div className="panel-wrapper">
-                <div className="panel">
-                    <div className="img"><img className='image' src="https://media.architecturaldigest.com/photos/63079fc7b4858efb76814bd2/16:9/w_4000,h_2250,c_limit/9.%20DeLorean-Alpha-5%20%5BDeLorean%5D.jpg" /></div>
-                    <div className="title">
-                        <h1>Lorem ipsum</h1>
-                    </div>
-                    <div className="border"></div>
-                    <div className="content">
-                        <p>Proin tempus leo id quam pellentesque sollic
-                            itudin adipiscing velit imperdiet.</p>
-                        <div className="button-link"><Link to={"/details"}>details</Link></div>
-                    </div>
-                </div>
+                {allCars.map(car => {
+                    return (
+
+                        <div className="panel" key={car._id}>
+                            <div className="img"><img className='image' src={car.imageUrl} /></div>
+                            <div className="title">
+                                <h1>{car.brand} {car.model}</h1>
+                            </div>
+                            <div className="border"></div>
+                            <div className="content">
+                                <p>{car.price} $</p>
+                                <div className="button-link"><Link to={`/details/${car._id}`}>details</Link></div>
+                            </div>
+                        </div>
+
+                    );
+                })}
             </div>
         </div>
     );

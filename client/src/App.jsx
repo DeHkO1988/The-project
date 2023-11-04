@@ -23,15 +23,9 @@ function App() {
                 <Route path='/login' element={<Login />} />
                 <Route path='/register' element={<Register />} />
                 <Route path='/create' element={<Create />} />
-                <Route path='/details' element={<Details />} />
+                <Route path='/details/:carId' element={<Details />} />
                 <Route path='*' element={<PageNotFound />} />
-
             </Routes>
-
-
-
-
-
 
             <Footer />
 
