@@ -1,16 +1,14 @@
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
+import * as carService from '../services/carService';
 
 export const Catalog = () => {
     const [allCars, setAllCars] = useState([]);
 
     useEffect(() => {
-        fetch('http://localhost:3030/jsonstore/users')
-            .then(res => res.json())
-            .then(data => setAllCars(Object.values(data)));
+        carService.getAll()
+        .then(result => setAllCars(result));
     }, []);
-
-    console.log(allCars)
 
     return (
         <div className="panel-wrap">
