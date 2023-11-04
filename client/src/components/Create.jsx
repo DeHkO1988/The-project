@@ -5,7 +5,7 @@ export const Create = () => {
             <form className="search-panel">
                 <div className="content">
                     <div className="title">
-                        <h1 classNameName='border'>Create</h1>
+                        <h1 className='border'>Create</h1>
                     </div>
 
                     <div className="searchbox">
@@ -37,7 +37,7 @@ export const Create = () => {
                         <label className="label">Search the site here...</label>
                         <div className="row">
                             <textarea className="input text" name='4'></textarea>
-                            <input type="text" className="input column" name='1' hidden="" />
+                            <input type="text" className="input column" name='1' hidden />
                         </div>
 
                         <button className="button" type="submit">Log in</button>

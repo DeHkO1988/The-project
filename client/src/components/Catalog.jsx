@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 export const Catalog = () => {
     return (
         <div className="panel-wrap">
@@ -14,7 +16,7 @@ export const Catalog = () => {
                     <div className="content">
                         <p>Proin tempus leo id quam pellentesque sollic
                             itudin adipiscing velit imperdiet.</p>
-                        <div className="button-link"><a href="#">details</a></div>
+                        <div className="button-link"><Link to={"/details"}>details</Link></div>
                     </div>
                 </div>
             </div>

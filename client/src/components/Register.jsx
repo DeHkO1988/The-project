@@ -5,7 +5,7 @@ export const Register = () => {
             <form className="search-panel">
                 <div className="content">
                     <div className="title">
-                        <h1 classNameName='border'>Registration</h1>
+                        <h1 className='border'>Registration</h1>
                     </div>
 
                     <div className="searchbox">

@@ -5,7 +5,7 @@ export const Login = () => {
             <form className="search-panel">
                 <div className="content">
                     <div className="title">
-                        <h1 classNameName='border'>Log In</h1>
+                        <h1 className='border'>Log In</h1>
                     </div>
 
                     <div className="searchbox">
