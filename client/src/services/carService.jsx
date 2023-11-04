@@ -8,4 +8,12 @@ export const getAll = async () => {
 
     return Object.values(result);
 
+};
+
+export const getOne = async (carId) => {
+    const car = await fetch(`${baseUrl}/${carId}`);
+
+    const result = await car.json();
+    
+    return result;
 }

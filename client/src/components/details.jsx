@@ -1,4 +1,16 @@
+import { useParams, Link } from "react-router-dom";
+import * as carService from '../services/carService';
+import { useState, useEffect } from "react";
+
 export const Details = () => {
+    const [car, setCar] = useState({});
+    const { carId } = useParams();
+    useEffect(() => {
+        carService.getOne(carId)
+            .then(res => setCar(res));
+
+    }, []);
+
     return (
         <div className="page-wrap">
             <div className="page-wrapper">
@@ -7,25 +19,24 @@ export const Details = () => {
                     <div className="mid-panel marginTop">
                         <div className="mid-panel-content ">
                             <div className="title">
-                                <h1>Aliquam arcu arcu aliquam eu</h1>
+                                <h1>{car.brand} {car.model}</h1>
                             </div>
                             <div className="border"></div>
                             <div>
-                                <img className="catalogImage image" src="https://www.autocar.co.uk/sites/autocar.co.uk/files/images/car-reviews/first-drives/legacy/10-porsche-718-cayman-gt4-rs-top-10.jpg" />
-                                <h2>Title</h2>
-                                <p><strong>Price:</strong></p>
-                                <p><strong>Price:</strong></p>
-                                <p><strong>Price:</strong></p>
-                                <p><strong>Price:</strong></p>
-                                <p><strong>Price:</strong></p>
+                                <img className="catalogImage image" src={car.imageUrl} />
+                                <h2>{car.brand} {car.model}</h2>
+                                <p><strong>First Registration:</strong> {car.registration}</p>
+                                <p><strong>Fuel type:</strong> {car.fuel}</p>
+                                <p><strong>Type:</strong> {car.type}</p>
+                                <p><strong>Mileage:</strong> {car.mileage} km</p>
+                                <p><strong>Price:</strong> {car.price} $</p>
 
-                                <p className="padBottom">Cras venenatis lacus vitae nisl tincidunt varius. Nunc dictum dapibus neque</p>
+                                <p className="padBottom"><strong>Description: </strong></p>
                             </div>
-                            <p className="padBottom">Cras venenatis lacus vitae nisl tincidunt varius. Nunc dictum dapibus neque</p>
 
-                            <button className="button" type="submit">Edit</button>
-                            <button className="button" type="submit">Delete</button>
-                            <button className="button" type="submit">Buy</button>
+                            <Link to={`/edit/${car._id}`}><button className="button">Edit</button></Link>
+                            <Link to={`/delete/${car._id}`}><button className="button" >Delete</button></Link>
+                            <Link to={`/buy/${car._id}`}><button className="button" >Buy</button></Link>
 
                         </div>
                     </div>
