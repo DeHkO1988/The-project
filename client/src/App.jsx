@@ -10,6 +10,7 @@ import { Details } from './components/details';
 import { PageNotFound } from './components/PageNotFound';
 
 
+
 function App() {
 
     return (

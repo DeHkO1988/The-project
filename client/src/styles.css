@@ -67,7 +67,8 @@ PANEL CLASSES
 .panel-wrapper{width:960px; margin:0 auto; overflow:auto; margin-top:10px; padding-bottom:300px;}
 
 .panel-wrapper .panel{width:260px; background:#f3f3ee; float:left; padding:20px; margin-top: 10px; margin-left: 10px; margin-right: 10px;}
-.panel-wrapper .image{width:20cqmin;}
+.panel-wrapper .image{ width:  250px; height: 250px; object-fit: cover;}
+.panel-wrapper .img{ text-align: center;}
 .panel-wrapper .title {  padding-bottom:10px; }
 .panel-wrapper .title h1{color:#50453b; font-family: 'Source Sans Pro', sans-serif; font-weight:normal; padding-top:20px;}
 .panel-wrapper .border{border-bottom:1px solid #dadacb; }

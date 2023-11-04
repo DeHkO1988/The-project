@@ -1,15 +1,17 @@
-import { useParams, Link } from "react-router-dom";
+import { useParams, Link, useNavigate } from "react-router-dom";
 import * as carService from '../services/carService';
 import { useState, useEffect } from "react";
 
 export const Details = () => {
     const [car, setCar] = useState({});
+    const navigate = useNavigate();
     const { carId } = useParams();
     useEffect(() => {
         carService.getOne(carId)
             .then(res => setCar(res));
 
-    }, []);
+    }, [carId]);
+
 
     return (
         <div className="page-wrap">
@@ -35,7 +37,7 @@ export const Details = () => {
                             </div>
 
                             <Link to={`/edit/${car._id}`}><button className="button">Edit</button></Link>
-                            <Link to={`/delete/${car._id}`}><button className="button" >Delete</button></Link>
+                            <button className="button" >Delete</button>
                             <Link to={`/buy/${car._id}`}><button className="button" >Buy</button></Link>
 
                         </div>

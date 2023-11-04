@@ -14,6 +14,12 @@ export const getOne = async (carId) => {
     const car = await fetch(`${baseUrl}/${carId}`);
 
     const result = await car.json();
-    
+
     return result;
+};
+
+export const deleteCar = async (carId) => {
+    await fetch(`${baseUrl}/${carId}`, {
+        method: 'DELETE',
+    });
 }

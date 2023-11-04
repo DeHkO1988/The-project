@@ -1,14 +1,17 @@
-import { Link } from "react-router-dom";
+
 import { useState, useEffect } from "react";
 import * as carService from '../services/carService';
+import { CarPanel } from "./CarPanel";
 
 export const Catalog = () => {
+
     const [allCars, setAllCars] = useState([]);
 
     useEffect(() => {
         carService.getAll()
             .then(result => setAllCars(result));
     }, []);
+
 
     return (
         <div className="panel-wrap">
@@ -18,33 +21,15 @@ export const Catalog = () => {
             <div className="panel-wrapper">
                 {allCars.map(car => {
                     return (
-
-                        <div className="panel" key={car._id}>
-                            <div className="img"><img className='image' src={car.imageUrl} /></div>
-                            <div className="title">
-                                <h1>{car.brand} {car.model}</h1>
-                            </div>
-                            <div className="border"></div>
-                            <div className="content">
-                                <p>{car.price} $</p>
-                                <div className="button-link"><Link to={`/details/${car._id}`}>details</Link></div>
-                            </div>
-                        </div>
-
+                        <CarPanel
+                            _id={car._id}
+                            image={car.imageUrl}
+                            brand={car.brand}
+                            model={car.model}
+                            price={car.price}
+                        />
                     );
                 })}
-
-                {/* <div className="panel" key={car._id}>
-                    <div className="img"><img className='image' src={car.imageUrl} /></div>
-                    <div className="title">
-                        <h1>{car.brand} {car.model}</h1>
-                    </div>
-                    <div className="border"></div>
-                    <div className="content">
-                        <p>{car.price} $</p>
-                        <div className="button-link"><Link to={`/details/${car._id}`}>details</Link></div>
-                    </div>
-                </div> */}
 
             </div>
         </div>
