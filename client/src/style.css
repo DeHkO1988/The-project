@@ -115,7 +115,7 @@ PRIMARY CONTENT CLASSS
 .primary-content .mid-panel-content h2{color:#cf9359; font-size:22px; padding-top:20px; font-weight:normal;}
 .primary-content .mid-panel-content p{padding-top:10px;}
 .primary-content .mid-panel-content .img{height:60%; width: 100%; padding-left: 5px; margin: auto; padding-top: 20px; padding-right: 5px;}
-.primary-content .mid-panel-content .image{height:55%; width: 55%; padding-left: 5px; margin: auto; padding-top: 20px; padding-right: 15px;}
+.primary-content .mid-panel-content .image{height:350px; width: 350px; padding-left: 5px; margin: auto; padding-top: 20px; padding-right: 15px; object-fit:cover;}
 .primary-content .border{border-bottom:1px solid #dadacb; margin-top:10px;}
 .primary-content .button {width:70px; height:40px; background: #cf9359; margin-left: 10px; margin-right: 10px;}
 .primary-content button:hover{background: white; }
