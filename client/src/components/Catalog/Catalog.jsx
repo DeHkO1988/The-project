@@ -1,16 +1,8 @@
-
-import { useState, useEffect } from "react";
-import * as carService from '../services/carService';
 import { CarPanel } from "./CarPanel";
 
-export const Catalog = () => {
-
-    const [allCars, setAllCars] = useState([]);
-
-    useEffect(() => {
-        carService.getAll()
-            .then(result => setAllCars(result));
-    }, []);
+export const Catalog = ({
+    cars,
+}) => {
 
 
     return (
@@ -19,7 +11,7 @@ export const Catalog = () => {
                 <h1>Aliquam arcu arcu aliquam eu</h1>
             </div>
             <div className="panel-wrapper">
-                {allCars.map(car => {
+                {cars.map(car => {
                     return (
                         <CarPanel
                             _id={car._id}

@@ -22,4 +22,19 @@ export const deleteCar = async (carId) => {
     await fetch(`${baseUrl}/${carId}`, {
         method: 'DELETE',
     });
+};
+
+export const create = async (data) => {
+    const newCar = await fetch(baseUrl, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data),
+    });
+
+    const result = await newCar.json();
+
+    return result
+
 }
