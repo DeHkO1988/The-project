@@ -1,46 +1,47 @@
 import { Link } from "react-router-dom";
+import style  from "../Header/Header.module.css";
 
 export const Header = () => {
     return (
-        <div className="header">
-            <div className="header-left-panel">
-                <div className="logo-wrap">
-                    <div className="logo">
+        <div className={style.header}>
+            <div className={style.headerLeftPanel}>
+                <div className={style.logoWrap}>
+                    <div className={style.logo}>
                         <h2>your slogan</h2>
                         <h1>WebsiteName</h1>
                     </div>
                 </div>
             </div>
-            <div className="header-right-panel">
-                <div className="header-right-panel-top">
+            <div className={style.headerRightPanel}>
+                {/* <div className={style.headerRightPanelTop}>
                     <p>Call Us : 000 888 8888</p>
                     <p> <a href="#">Mail Us : info@websitename.com</a></p>
-                </div>
-                <div className="menu">
+                </div> */}
+                <div className={style.menu}>
                     <ul>
-                        <li className="marRight20">
+                        <li className="marLeft20">
                             <Link to={'/'}>home</Link>
                         </li>
 
-                        <li className="marRight20">
+                        <li className="marLeft20">
                             <Link to={"/catalog"}>Catalog</Link>
                         </li>
 
-                        <li>
+                        <li className="marLeft20">
                             <Link to={"/Login"}>LogIn</Link>
                         </li>
 
-                        <li className="marRight20">
+                        <li className="marLeft20">
                             <Link to="/register">Register</Link>
                         </li>
-                        
-                        <li className="marRight20">
+
+                        {/* <li className="marLeft20">
                             <Link to="/create">Create</Link>
                         </li>
 
-                        <li>
+                        <li className="marLeft20">
                             <Link to="/logout">Logout</Link>
-                        </li>
+                        </li> */}
 
                     </ul>
                 </div>
