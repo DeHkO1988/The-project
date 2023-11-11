@@ -5,7 +5,9 @@ import style from "../Header/Header.module.css";
 import { IsLogin } from "../Header/IsLogin";
 import { IsNotLogin } from "./IsNotLogin";
 
-export const Header = () => {
+export const Header = ({
+    logoutHandler,
+}) => {
 
     const user = useContext(UserContext);
 
@@ -28,7 +30,7 @@ export const Header = () => {
                 <div className={style.menu}>
                     <ul>
 
-                        {user ? <IsLogin /> : <IsNotLogin />}
+                        {user ? <IsLogin logoutHandler={logoutHandler} /> : <IsNotLogin />}
 
 
 

@@ -55,11 +55,17 @@ function App() {
 
     };
 
+    const logoutHandler = () => {
+        setUser(null);
+
+        navigate('/');
+    };
+
     return (
         <>
             <UserContext.Provider value={user}>
 
-                <Header />
+                <Header logoutHandler={logoutHandler} />
 
                 <Routes >
                     <Route path='/' element={<Home />} />
