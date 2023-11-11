@@ -10,12 +10,15 @@ import { Details } from './components/Details/Details';
 import { PageNotFound } from './components/PageNotFound/PageNotFound';
 
 import { useState, useEffect } from "react";
+import { UserContext } from './components/Context/userContext';
 import * as carService from './components/services/carService';
+import * as userService from './components/services/userService';
 
 
 
 function App() {
     const [allCars, setAllCars] = useState([]);
+    const [user, setUser] = useState(null);
     const navigate = useNavigate();
 
     useEffect(() => {
@@ -32,26 +35,45 @@ function App() {
 
         navigate('/catalog');
 
-    }
+    };
+
+    const loginHandler = async (e, data) => {
+
+        e.preventDefault();
+
+        try {
+
+            const token = await userService.login(data);
+
+            setUser(token);
+
+        } catch (error) {
+            console.log(error)
+        };
+
+        navigate('/');
+
+    };
 
     return (
         <>
+            <UserContext.Provider value={user}>
 
-            <Header />
+                <Header />
 
+                <Routes >
+                    <Route path='/' element={<Home />} />
+                    <Route path='/catalog' element={<Catalog cars={allCars} />} />
+                    <Route path='/login' element={<Login loginHandler={loginHandler} />} />
+                    <Route path='/register' element={<Register />} />
+                    <Route path='/create' element={<Create createCarHandler={createCarHandler} />} />
+                    <Route path='/details/:carId' element={<Details />} />
+                    <Route path='*' element={<PageNotFound />} />
+                </Routes>
 
-            <Routes >
-                <Route path='/' element={<Home />} />
-                <Route path='/catalog' element={<Catalog cars={allCars} />} />
-                <Route path='/login' element={<Login />} />
-                <Route path='/register' element={<Register />} />
-                <Route path='/create' element={<Create createCarHandler={createCarHandler}/>} />
-                <Route path='/details/:carId' element={<Details />} />
-                <Route path='*' element={<PageNotFound />} />
-            </Routes>
+                <Footer />
 
-            <Footer />
-
+            </UserContext.Provider>
         </>
 
     )

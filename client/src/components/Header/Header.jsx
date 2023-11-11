@@ -1,7 +1,14 @@
+import { useContext } from "react";
+import { UserContext } from "../Context/userContext";
 import { Link } from "react-router-dom";
-import style  from "../Header/Header.module.css";
+import style from "../Header/Header.module.css";
+import { IsLogin } from "../Header/IsLogin";
+import { IsNotLogin } from "./IsNotLogin";
 
 export const Header = () => {
+
+    const user = useContext(UserContext);
+
     return (
         <div className={style.header}>
             <div className={style.headerLeftPanel}>
@@ -14,33 +21,23 @@ export const Header = () => {
             </div>
             <div className={style.headerRightPanel}>
                 <div className={style.headerRightPanelTop}>
-                    <p>Welcome GUEST</p>
+                    {user ? <p>Welcome {user.username}</p> : <p>Welcome GUEST</p>}
+
                     {/* <p> <a href="#">Mail Us : info@websitename.com</a></p> */}
                 </div>
                 <div className={style.menu}>
                     <ul>
-                        <li className="marLeft20">
-                            <Link to={'/'}>home</Link>
-                        </li>
+
+                        {user ? <IsLogin /> : <IsNotLogin />}
+
+
 
                         <li className="marLeft20">
                             <Link to={"/catalog"}>Catalog</Link>
                         </li>
 
                         <li className="marLeft20">
-                            <Link to={"/Login"}>LogIn</Link>
-                        </li>
-
-                        <li className="marLeft20">
-                            <Link to="/register">Register</Link>
-                        </li>
-
-                        <li className="marLeft20">
-                            <Link to="/create">Create</Link>
-                        </li>
-
-                        <li className="marLeft20">
-                            <Link to="/logout">Logout</Link>
+                            <Link to={'/'}>home</Link>
                         </li>
 
                     </ul>
