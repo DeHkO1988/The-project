@@ -27,13 +27,13 @@ export const Details = () => {
                             <div>
                                 <img className="catalogImage image" src={car.imageUrl} />
                                 <h2>{car.brand} {car.model}</h2>
-                                <p><strong>First Registration:</strong> {car.registration}</p>
+                                <p><strong>First Registration:</strong> {car.registration} year</p>
                                 <p><strong>Fuel type:</strong> {car.fuel}</p>
                                 <p><strong>Type:</strong> {car.type}</p>
-                                <p><strong>Mileage:</strong> {car.mileage} km</p>
                                 <p><strong>Price:</strong> {car.price} $</p>
-
-                                <p className="padBottom"><strong>Description: </strong></p>
+                                <p><strong>Mileage:</strong> {car.mileage} km</p>
+                                
+                                <p className="padBottom"><strong>Description: {car.description}</strong></p>
                             </div>
 
                             <Link to={`/edit/${car._id}`}><button className="button">Edit</button></Link>
