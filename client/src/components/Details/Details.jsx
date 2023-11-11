@@ -32,8 +32,8 @@ export const Details = () => {
                                 <p><strong>Type:</strong> {car.type}</p>
                                 <p><strong>Price:</strong> {car.price} $</p>
                                 <p><strong>Mileage:</strong> {car.mileage} km</p>
-                                
-                                <p className="padBottom"><strong>Description: {car.description}</strong></p>
+
+                                <p className="padBottom"><strong>Description:</strong> {car.description}</p>
                             </div>
 
                             <Link to={`/edit/${car._id}`}><button className="button">Edit</button></Link>

@@ -8,7 +8,7 @@ export const CarPanel = ({
 }) => {
 
     return (
-        <div className="panel" key={_id}>
+        <div className="panel">
             <div className="img"><img className='image' src={image} /></div>
             <div className="title">
                 <h1>{brand} {model}</h1>

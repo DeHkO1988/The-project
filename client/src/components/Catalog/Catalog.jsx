@@ -20,6 +20,7 @@ export const Catalog = ({
                     {cars.map(car => {
                         return (
                             <CarPanel
+                                key={car._id}
                                 _id={car._id}
                                 image={car.imageUrl}
                                 brand={car.brand}

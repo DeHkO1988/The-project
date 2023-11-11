@@ -13,10 +13,10 @@ export const Header = () => {
                 </div>
             </div>
             <div className={style.headerRightPanel}>
-                {/* <div className={style.headerRightPanelTop}>
-                    <p>Call Us : 000 888 8888</p>
-                    <p> <a href="#">Mail Us : info@websitename.com</a></p>
-                </div> */}
+                <div className={style.headerRightPanelTop}>
+                    <p>Welcome GUEST</p>
+                    {/* <p> <a href="#">Mail Us : info@websitename.com</a></p> */}
+                </div>
                 <div className={style.menu}>
                     <ul>
                         <li className="marLeft20">
@@ -35,13 +35,13 @@ export const Header = () => {
                             <Link to="/register">Register</Link>
                         </li>
 
-                        {/* <li className="marLeft20">
+                        <li className="marLeft20">
                             <Link to="/create">Create</Link>
                         </li>
 
                         <li className="marLeft20">
                             <Link to="/logout">Logout</Link>
-                        </li> */}
+                        </li>
 
                     </ul>
                 </div>
