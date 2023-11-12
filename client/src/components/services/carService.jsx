@@ -18,11 +18,16 @@ export const getOne = async (carId) => {
     return result;
 };
 
-// export const deleteCar = async (carId) => {
-//     await fetch(`${baseUrl}/${carId}`, {
-//         method: 'DELETE',
-//     });
-// };
+export const deleteCar = async (carId, user) => {
+
+    await fetch(`${baseUrl}/${carId}`, {
+        method: 'DELETE',
+        headers: {
+            //'Content-Type': 'application/json',
+            'X-Authorization': `${user.accessToken}`,
+        },
+    });
+};
 
 export const create = async (data, user) => {
     const newCar = await fetch(baseUrl, {
@@ -31,7 +36,7 @@ export const create = async (data, user) => {
             'Content-Type': 'application/json',
             'X-Authorization': `${user.accessToken}`,
         },
-        body: JSON.stringify({...data, owner: user.username}),
+        body: JSON.stringify({ ...data, owner: user.username }),
     });
 
     const result = await newCar.json();

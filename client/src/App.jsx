@@ -83,6 +83,17 @@ function App() {
 
     const errorCleaner = () => {
         setErrors({});
+    };
+
+    const deleteCarHandler = (carId) => {
+        
+        carService.deleteCar(carId, user);
+
+        const newAllCars = allCars.filter(x => x._id !== carId);
+
+        setAllCars(state => newAllCars);
+
+        navigate('/catalog');
     }
 
     return (
@@ -97,7 +108,7 @@ function App() {
                     <Route path='/login' element={<Login loginHandler={loginHandler} errors={errors} errorCleaner={errorCleaner} />} />
                     <Route path='/register' element={<Register registerHandler={registerHandler} />} />
                     <Route path='/create' element={<Create createCarHandler={createCarHandler} />} />
-                    <Route path='/details/:carId' element={<Details />} />
+                    <Route path='/details/:carId' element={<Details deleteCarHandler={deleteCarHandler} />} />
                     <Route path='*' element={<PageNotFound />} />
                 </Routes>
 

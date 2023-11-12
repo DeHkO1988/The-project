@@ -2,7 +2,9 @@ import { useParams, Link, useNavigate } from "react-router-dom";
 import * as carService from '../services/carService';
 import { useState, useEffect } from "react";
 
-export const Details = () => {
+export const Details = ({
+    deleteCarHandler,
+}) => {
     const [car, setCar] = useState({});
     const navigate = useNavigate();
     const { carId } = useParams();
@@ -11,6 +13,7 @@ export const Details = () => {
             .then(res => setCar(res));
 
     }, [carId]);
+
 
     return (
         <div className="page-wrap">
@@ -36,7 +39,7 @@ export const Details = () => {
                             </div>
 
                             <Link to={`/edit/${car._id}`}><button className="button">Edit</button></Link>
-                            <button className="button" >Delete</button>
+                            <button className="button" onClick={() => deleteCarHandler(car._id)}>Delete</button>
                             <Link to={`/buy/${car._id}`}><button className="button" >Buy</button></Link>
 
                         </div>
