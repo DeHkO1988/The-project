@@ -19,6 +19,7 @@ import * as userService from './components/services/userService';
 function App() {
     const [allCars, setAllCars] = useState([]);
     const [user, setUser] = useState(null);
+    const [errors, setErrors] = useState({});
     const navigate = useNavigate();
 
     useEffect(() => {
@@ -47,22 +48,24 @@ function App() {
 
             setUser(token);
 
-        } catch (error) {
-            console.log(error)
-        };
+            navigate('/');
 
-        navigate('/');
+        } catch (error) {
+            setErrors(state => ({...state, login: error}));
+        };
 
     };
 
     const logoutHandler = () => {
         setUser(null);
 
+        setErrors({});
+
         navigate('/');
     };
 
     const registerHandler = async (data) => {
-       
+
         const token = await userService.register(data);
 
         setUser(token);
@@ -70,6 +73,10 @@ function App() {
         navigate('/');
 
     };
+
+    const errorCleaner = () => {
+        setErrors({});
+    } 
 
     return (
         <>
@@ -80,7 +87,7 @@ function App() {
                 <Routes >
                     <Route path='/' element={<Home />} />
                     <Route path='/catalog' element={<Catalog cars={allCars} />} />
-                    <Route path='/login' element={<Login loginHandler={loginHandler} />} />
+                    <Route path='/login' element={<Login loginHandler={loginHandler} errors={errors} errorCleaner={errorCleaner} />} />
                     <Route path='/register' element={<Register registerHandler={registerHandler} />} />
                     <Route path='/create' element={<Create createCarHandler={createCarHandler} />} />
                     <Route path='/details/:carId' element={<Details />} />

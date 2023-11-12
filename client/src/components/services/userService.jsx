@@ -13,8 +13,10 @@ export const login = async (data) => {
         
         const result = await user.json();
 
-        if(result.code == '403') {
-            throw new Error('Username or password is incorrect!');
+        console.log(result);
+
+        if(!user.ok) {
+            throw new Error(result.message);
         }
 
         return result;
