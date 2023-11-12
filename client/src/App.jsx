@@ -51,7 +51,7 @@ function App() {
             navigate('/');
 
         } catch (error) {
-            setErrors(state => ({...state, login: error}));
+            setErrors(state => ({ ...state, login: error }));
         };
 
     };
@@ -66,17 +66,24 @@ function App() {
 
     const registerHandler = async (data) => {
 
-        const token = await userService.register(data);
+        const { repeatPassword, ...userInfo } = data;
 
-        setUser(token);
+        if (repeatPassword.length !== 0 && repeatPassword === userInfo.password) {
 
-        navigate('/');
+            const token = await userService.register(data);
+
+            setUser(token);
+
+            navigate('/');
+
+        }
+
 
     };
 
     const errorCleaner = () => {
         setErrors({});
-    } 
+    }
 
     return (
         <>
