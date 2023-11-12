@@ -13,8 +13,6 @@ export const login = async (data) => {
         
         const result = await user.json();
 
-        console.log(result);
-
         if(!user.ok) {
             throw new Error(result.message);
         }

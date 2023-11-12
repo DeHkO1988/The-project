@@ -1,4 +1,4 @@
-const baseUrl = 'http://localhost:3030/jsonstore/cars';
+const baseUrl = 'http://localhost:3030/data/cars';
 
 export const getAll = async () => {
 
@@ -28,7 +28,8 @@ export const create = async (data, user) => {
     const newCar = await fetch(baseUrl, {
         method: 'POST',
         headers: {
-            'Content-Type': 'application/json'
+            'Content-Type': 'application/json',
+            'X-Authorization': `${user.accessToken}`,
         },
         body: JSON.stringify({...data, owner: user.username}),
     });
