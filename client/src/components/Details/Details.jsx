@@ -12,7 +12,6 @@ export const Details = () => {
 
     }, [carId]);
 
-
     return (
         <div className="page-wrap">
             <div className="page-wrapper">
@@ -26,7 +25,7 @@ export const Details = () => {
                             <div className="border"></div>
                             <div>
                                 <img className="catalogImage image" src={car.imageUrl} />
-                                <h2>{car.brand} {car.model}</h2>
+                                <h2>Owner: {car.owner}</h2>
                                 <p><strong>First Registration:</strong> {car.registration} year</p>
                                 <p><strong>Fuel type:</strong> {car.fuel}</p>
                                 <p><strong>Type:</strong> {car.type}</p>

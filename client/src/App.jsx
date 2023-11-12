@@ -29,7 +29,7 @@ function App() {
     const createCarHandler = async (e, data) => {
         e.preventDefault();
 
-        const newCar = await carService.create(data);
+        const newCar = await carService.create(data, user);
 
         setAllCars(state => [...state, newCar]);
 

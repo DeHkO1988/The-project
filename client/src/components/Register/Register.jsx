@@ -16,9 +16,9 @@ export const Register = ({
     });
 
     const setInfoForRegistration = (e) => {
+        
         setRegisterData(state => ({...state, [e.target.name]: e.target.value }));
        
-        console.log(registerData)
     };
 
     const onSubmitHandler = (e) => {

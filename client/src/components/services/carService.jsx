@@ -24,13 +24,13 @@ export const getOne = async (carId) => {
 //     });
 // };
 
-export const create = async (data) => {
+export const create = async (data, user) => {
     const newCar = await fetch(baseUrl, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
         },
-        body: JSON.stringify(data),
+        body: JSON.stringify({...data, owner: user.username}),
     });
 
     const result = await newCar.json();
