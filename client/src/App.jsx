@@ -61,6 +61,16 @@ function App() {
         navigate('/');
     };
 
+    const registerHandler = async (data) => {
+       
+        const token = await userService.register(data);
+
+        setUser(token);
+
+        navigate('/');
+
+    };
+
     return (
         <>
             <UserContext.Provider value={user}>
@@ -71,7 +81,7 @@ function App() {
                     <Route path='/' element={<Home />} />
                     <Route path='/catalog' element={<Catalog cars={allCars} />} />
                     <Route path='/login' element={<Login loginHandler={loginHandler} />} />
-                    <Route path='/register' element={<Register />} />
+                    <Route path='/register' element={<Register registerHandler={registerHandler} />} />
                     <Route path='/create' element={<Create createCarHandler={createCarHandler} />} />
                     <Route path='/details/:carId' element={<Details />} />
                     <Route path='*' element={<PageNotFound />} />

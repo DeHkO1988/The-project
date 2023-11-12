@@ -31,13 +31,13 @@ export const Login = ({
 
                         <label className="label" htmlFor="email">Email</label>
                         <div className="row">
-                            <input type="text" className="input column" name="email" id="email" value={login.email} onChange={loginData} />
+                            <input type="text" className="input column" name="email" id="email" value={login.email} onChange={loginData} autoComplete="off"/>
                             <input type="text" className="input column" name='1' hidden />
                         </div>
 
                         <label className="label" htmlFor="password">Password</label>
                         <div className="row">
-                            <input type="password" className="input column" name="password" id="password" value={login.password} onChange={loginData} />
+                            <input type="password" className="input column" name="password" id="password" value={login.password} onChange={loginData} autoComplete="off"/>
                             <input type="text" className="input column" name='1' hidden />
                         </div>
 

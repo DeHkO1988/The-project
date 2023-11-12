@@ -1,8 +1,49 @@
-export const Register = () => {
+import { useState } from "react";
+
+export const Register = ({
+    registerHandler,
+}) => {
+
+    const [registerData, setRegisterData] = useState({
+        email: '',
+        username: '',
+        password: '',
+        repeatPassword: ''
+    });
+
+    const [errors, setErrors] = useState({
+        password: '',
+    });
+
+    const setInfoForRegistration = (e) => {
+        setRegisterData(state => ({...state, [e.target.name]: e.target.value }));
+       
+        console.log(registerData)
+    };
+
+    const onSubmitHandler = (e) => {
+
+        e.preventDefault();
+
+        registerHandler(registerData)
+
+    };
+
+    const errorHandler = () => {
+
+        if (registerData.password !== registerData.repeatPassword) {
+            setErrors({ ...errors, password: 'Repeat password is not same as password!'});
+        } else {
+            setErrors({ ...errors, password: '' });
+        };
+
+        console.log(errors)
+    };
+
     return (
         <div className="page-wrap">
             <div className="top-border"></div>
-            <form className="search-panel">
+            <form className="search-panel" onSubmit={onSubmitHandler}>
                 <div className="content">
                     <div className="title">
                         <h1 className='border'>Registration</h1>
@@ -10,31 +51,34 @@ export const Register = () => {
 
                     <div className="searchbox">
 
-                        <label className="label">E-mail</label>
+                        <label htmlFor="email" className="label">E-mail</label>
                         <div className="row">
-                            <input type="text" className="input column" name='1' />
+                            <input type="text" className="input column" name="email" id="email" autoComplete="off" value={registerData.email} onChange={setInfoForRegistration} />
                             <input type="text" className="input column" name='1' hidden />
                         </div>
 
-                        <label className="label">Username</label>
+                        <label htmlFor="username" className="label">Username</label>
                         <div className="row">
-                            <input type="text" className="input column" name='1' />
+                            <input type="text" className="input column" name="username" id="username" autoComplete="off" value={registerData.username} onChange={setInfoForRegistration} />
                             <input type="text" className="input column" name='1' hidden />
                         </div>
 
-                        <label className="label">Password</label>
+                        <label htmlFor="password" className="label">Password</label>
                         <div className="row">
-                            <input type="text" className="input column" name='1' />
+                            <input type="password" className="input column" name="password" id="password" autoComplete="off" value={registerData.password} onChange={setInfoForRegistration} />
                             <input type="text" className="input column" name='1' hidden />
                         </div>
 
-                        <label className="label">Repeat password</label>
+                        <label htmlFor="repeatPassword" className="label">Repeat password</label>
                         <div className="row">
-                            <input type="text" className="input column" name='1' />
+                            <input type="password" className="input column" name="repeatPassword" id="repeatPassword" autoComplete="off" value={registerData.repeatPassword} onChange={setInfoForRegistration} onBlur={errorHandler} />
                             <input type="text" className="input column" name='1' hidden />
                         </div>
 
-                        <button className="button" type="submit">Log in</button>
+
+                        <button className="button" type="submit">Register</button>
+
+
 
                     </div>
 
