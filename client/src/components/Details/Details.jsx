@@ -1,4 +1,6 @@
 import { useParams, Link, useNavigate } from "react-router-dom";
+import { useContext } from "react";
+import { UserContext } from "../Context/userContext";
 import * as carService from '../services/carService';
 import { useState, useEffect } from "react";
 
@@ -6,13 +8,19 @@ export const Details = ({
     deleteCarHandler,
 }) => {
     const [car, setCar] = useState({});
-    const navigate = useNavigate();
+    //const navigate = useNavigate();
     const { carId } = useParams();
+    const user = useContext(UserContext);
+
+
     useEffect(() => {
         carService.getOne(carId)
             .then(res => setCar(res));
 
     }, [carId]);
+
+    // console.log(user)
+    // console.log(car)
 
 
     return (
@@ -37,10 +45,22 @@ export const Details = ({
 
                                 <p className="padBottom"><strong>Description:</strong> {car.description}</p>
                             </div>
+                            {user && (
+                                <>
+                                    {user._id === car._ownerId && <Link to={`/edit/${car._id}`}><button className="button">Edit</button></Link>}
+                                    {user._id === car._ownerId && <button className="button" onClick={() => deleteCarHandler(car._id)}>Delete</button>}
 
-                            <Link to={`/edit/${car._id}`}><button className="button">Edit</button></Link>
-                            <button className="button" onClick={() => deleteCarHandler(car._id)}>Delete</button>
-                            <Link to={`/buy/${car._id}`}><button className="button" >Buy</button></Link>
+                                    {user._id !== car._ownerId && <Link to={`/buy/${car._id}`}><button className="button" >Buy</button></Link>}
+                                </>
+                            )
+                            }
+                            {/* <>
+                                {user?._id === car._ownerId && <Link to={`/edit/${car._id}`}><button className="button">Edit</button></Link>}
+                                {user?._id === car._ownerId && <button className="button" onClick={() => deleteCarHandler(car._id)}>Delete</button>}
+
+                                {user?._id !== car._ownerId && <Link to={`/buy/${car._id}`}><button className="button" >Buy</button></Link>}
+                            </> */}
+
 
                         </div>
                     </div>
