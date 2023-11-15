@@ -16,9 +16,9 @@ export const Register = ({
     });
 
     const setInfoForRegistration = (e) => {
-        
-        setRegisterData(state => ({...state, [e.target.name]: e.target.value }));
-       
+
+        setRegisterData(state => ({ ...state, [e.target.name]: e.target.value }));
+
     };
 
     const onSubmitHandler = (e) => {
@@ -32,12 +32,11 @@ export const Register = ({
     const errorHandler = () => {
 
         if (registerData.password !== registerData.repeatPassword) {
-            setErrors({ ...errors, password: 'Repeat password is not same as password!'});
+            setErrors({ ...errors, password: 'Repeat password is not same as password!' });
         } else {
             setErrors({ ...errors, password: '' });
         };
-
-        console.log(errors)
+        
     };
 
     return (
