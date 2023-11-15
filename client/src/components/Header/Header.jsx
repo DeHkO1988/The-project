@@ -5,11 +5,12 @@ import style from "../Header/Header.module.css";
 import { IsLogin } from "../Header/IsLogin";
 import { IsNotLogin } from "./IsNotLogin";
 
+
 export const Header = ({
-    logoutHandler,
+
 }) => {
 
-    const user = useContext(UserContext);
+    const { user, logoutHandler } = useContext(UserContext);
 
     return (
         <div className={style.header}>

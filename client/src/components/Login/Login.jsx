@@ -1,15 +1,17 @@
 import { useState, useEffect } from "react";
+import { useContext } from "react";
+
+import { UserContext } from "../Context/userContext";
 import style from '../Login/Login.module.css';
 
 export const Login = ({
-    loginHandler,
-    errors,
-    errorCleaner
 }) => {
     const [login, setLogin] = useState({
         email: '',
         password: ''
     });
+
+    const { loginHandler, errors, errorCleaner } = useContext(UserContext);
 
     useEffect(() => {
         return () => {

@@ -1,4 +1,5 @@
 import { Routes, Route, useNavigate } from 'react-router-dom';
+
 import { Header } from './components/Header/Header'
 import { Home } from './components/Home/Home'
 import { Footer } from './components/Footer/Footer';
@@ -9,112 +10,32 @@ import { Create } from './components/Create/Create';
 import { Details } from './components/Details/Details';
 import { PageNotFound } from './components/PageNotFound/PageNotFound';
 
-import { useState, useEffect } from "react";
-import { UserContext } from './components/Context/userContext';
-import * as carService from './components/services/carService';
-import * as userService from './components/services/userService';
-
+import { UserProvider } from './components/Context/userContext';
+import { CarProvider } from './components/Context/carsContext';
 
 
 function App() {
-    const [allCars, setAllCars] = useState([]);
-    const [user, setUser] = useState(null);
-    const [errors, setErrors] = useState({});
-    const navigate = useNavigate();
-
-    useEffect(() => {
-        carService.getAll()
-            .then(result => setAllCars(result));
-    }, []);
-
-    const createCarHandler = async (e, data) => {
-        e.preventDefault();
-
-        const newCar = await carService.create(data, user);
-
-        setAllCars(state => [...state, newCar]);
-
-        navigate('/catalog');
-
-    };
-
-    const loginHandler = async (e, data) => {
-
-        e.preventDefault();
-
-        try {
-
-            const token = await userService.login(data);
-
-            setUser(token);
-
-            navigate('/');
-
-        } catch (error) {
-            setErrors(state => ({ ...state, login: error }));
-        };
-
-    };
-
-    const logoutHandler = () => {
-        setUser(null);
-
-        setErrors({});
-
-        navigate('/');
-    };
-
-    const registerHandler = async (data) => {
-
-        const { repeatPassword, ...userInfo } = data;
-
-        if (repeatPassword.length !== 0 && repeatPassword === userInfo.password) {
-
-            const token = await userService.register(data);
-
-            setUser(token);
-
-            navigate('/');
-
-        }
-
-
-    };
-
-    const errorCleaner = () => {
-        setErrors({});
-    };
-
-    const deleteCarHandler = (carId) => {
-        
-        carService.deleteCar(carId, user);
-
-        const newAllCars = allCars.filter(x => x._id !== carId);
-
-        setAllCars(state => newAllCars);
-
-        navigate('/catalog');
-    }
 
     return (
         <>
-            <UserContext.Provider value={user}>
+            <UserProvider>
+                <CarProvider>
 
-                <Header logoutHandler={logoutHandler} />
+                    <Header />
 
-                <Routes >
-                    <Route path='/' element={<Home />} />
-                    <Route path='/catalog' element={<Catalog cars={allCars} />} />
-                    <Route path='/login' element={<Login loginHandler={loginHandler} errors={errors} errorCleaner={errorCleaner} />} />
-                    <Route path='/register' element={<Register registerHandler={registerHandler} />} />
-                    <Route path='/create' element={<Create createCarHandler={createCarHandler} />} />
-                    <Route path='/details/:carId' element={<Details deleteCarHandler={deleteCarHandler} />} />
-                    <Route path='*' element={<PageNotFound />} />
-                </Routes>
+                    <Routes >
+                        <Route path='/' element={<Home />} />
+                        <Route path='/login' element={<Login />} />
+                        <Route path='/register' element={<Register />} />
+                        <Route path='/catalog' element={<Catalog />} />
+                        <Route path='/create' element={<Create />} />
+                        <Route path='/details/:carId' element={<Details />} />
+                        <Route path='*' element={<PageNotFound />} />
+                    </Routes>
 
-                <Footer />
-
-            </UserContext.Provider>
+                    <Footer />
+                </CarProvider>
+            </UserProvider>
         </>
 
     )

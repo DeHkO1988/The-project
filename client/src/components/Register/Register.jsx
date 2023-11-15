@@ -1,8 +1,11 @@
 import { useState } from "react";
+import { useContext } from "react";
 
-export const Register = ({
-    registerHandler,
-}) => {
+import { UserContext } from "../Context/userContext";
+
+export const Register = () => {
+
+    const { registerHandler } = useContext(UserContext)
 
     const [registerData, setRegisterData] = useState({
         email: '',
@@ -36,7 +39,7 @@ export const Register = ({
         } else {
             setErrors({ ...errors, password: '' });
         };
-        
+
     };
 
     return (

@@ -1,8 +1,9 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
+import { CarContext } from "../Context/carsContext";
 
-export const Create = ({
-    createCarHandler,
-}) => {
+export const Create = () => {
+
+    const {createCarHandler} = useContext(CarContext);
 
     const [values, setValues] = useState({
         brand: '',

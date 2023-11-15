@@ -1,16 +1,16 @@
 import { useParams, Link, useNavigate } from "react-router-dom";
 import { useContext } from "react";
 import { UserContext } from "../Context/userContext";
+import { CarContext } from "../Context/carsContext";
 import * as carService from '../services/carService';
 import { useState, useEffect } from "react";
 
-export const Details = ({
-    deleteCarHandler,
-}) => {
+export const Details = () => {
     const [car, setCar] = useState({});
-    //const navigate = useNavigate();
+
     const { carId } = useParams();
-    const user = useContext(UserContext);
+    const { user } = useContext(UserContext);
+    const { deleteCarHandler } = useContext(CarContext);
 
 
     useEffect(() => {
@@ -18,9 +18,6 @@ export const Details = ({
             .then(res => setCar(res));
 
     }, [carId]);
-
-    // console.log(user)
-    // console.log(car)
 
 
     return (

@@ -1,10 +1,12 @@
+import { useContext } from "react";
+
+import { CarContext } from "../Context/carsContext";
 import { CarPanel } from "./CarPanel";
 import style from "./Catalog.module.css";
 
-export const Catalog = ({
-    cars,
-}) => {
+export const Catalog = () => {
 
+    const { allCars } = useContext(CarContext);
 
     return (
         <div className="panel-wrap">
@@ -12,12 +14,12 @@ export const Catalog = ({
                 <h1>here are All car offers</h1>
             </div>
 
-            {cars.length > 0 ?
+            {allCars.length > 0 ?
                 <div className="panel-wrapper">
 
 
 
-                    {cars.map(car => {
+                    {allCars.map(car => {
                         return (
                             <CarPanel
                                 key={car._id}
