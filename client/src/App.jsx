@@ -8,10 +8,12 @@ import { Login } from './components/Login/Login';
 import { Register } from './components/Register/Register';
 import { Create } from './components/Create/Create';
 import { Details } from './components/Details/Details';
+import { Edit } from './components/Edit/Edit';
 import { PageNotFound } from './components/PageNotFound/PageNotFound';
 
 import { UserProvider } from './components/Context/userContext';
 import { CarProvider } from './components/Context/carsContext';
+
 
 
 function App() {
@@ -30,6 +32,7 @@ function App() {
                         <Route path='/catalog' element={<Catalog />} />
                         <Route path='/create' element={<Create />} />
                         <Route path='/details/:carId' element={<Details />} />
+                        <Route path='/edit/:carId' element={<Edit />} />
                         <Route path='*' element={<PageNotFound />} />
                     </Routes>
 

@@ -30,6 +30,18 @@ export const CarProvider = ({
 
     };
 
+    const editCarHandler = async (e, car, carId) => {
+        e.preventDefault();
+
+        const editedCar = await carService.edit(car, user, carId);
+
+        const newState = allCars.map(x => x._id === editedCar._id ? editedCar : x);
+
+        setAllCars(state => newState);
+
+        navigate(`/details/${carId}`);
+    };
+
     const deleteCarHandler = (carId) => {
 
         carService.deleteCar(carId, user);
@@ -44,6 +56,7 @@ export const CarProvider = ({
     const carContextValues = {
         createCarHandler,
         deleteCarHandler,
+        editCarHandler,
         allCars: allCars,
     };
 
