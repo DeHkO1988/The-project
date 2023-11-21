@@ -5,7 +5,7 @@ import { UserContext } from "../Context/userContext";
 
 export const Register = () => {
 
-    const { registerHandler } = useContext(UserContext)
+    const { registerHandler, errors } = useContext(UserContext)
 
     const [registerData, setRegisterData] = useState({
         email: '',
@@ -14,9 +14,9 @@ export const Register = () => {
         repeatPassword: ''
     });
 
-    const [errors, setErrors] = useState({
-        password: '',
-    });
+    // const [errors, setErrors] = useState({
+    //     password: '',
+    // });
 
     const setInfoForRegistration = (e) => {
 
@@ -32,15 +32,15 @@ export const Register = () => {
 
     };
 
-    const errorHandler = () => {
+    // const errorHandler = () => {
 
-        if (registerData.password !== registerData.repeatPassword) {
-            setErrors({ ...errors, password: 'Repeat password is not same as password!' });
-        } else {
-            setErrors({ ...errors, password: '' });
-        };
+    //     if (registerData.password !== registerData.repeatPassword) {
+    //         setErrors({ ...errors, password: 'Repeat password is not same as password!' });
+    //     } else {
+    //         setErrors({ ...errors, password: '' });
+    //     };
 
-    };
+    // };
 
     return (
         <div className="page-wrap">
@@ -73,7 +73,8 @@ export const Register = () => {
 
                         <label htmlFor="repeatPassword" className="label">Repeat password</label>
                         <div className="row">
-                            <input type="password" className="input column" name="repeatPassword" id="repeatPassword" autoComplete="off" value={registerData.repeatPassword} onChange={setInfoForRegistration} onBlur={errorHandler} />
+                            <input type="password" className="input column" name="repeatPassword" id="repeatPassword" autoComplete="off" value={registerData.repeatPassword} onChange={setInfoForRegistration} />
+                            {errors.pass && <p>Error: {errors.pass}</p>}
                             <input type="text" className="input column" name='1' hidden />
                         </div>
 
