@@ -32,12 +32,20 @@ export const UserProvider = ({
 
     };
 
-    const logoutHandler = () => {
-        setUser(null);
+    const logoutHandler = async () => {
 
-        setErrors({});
+        const response = await userService.logout(user);
 
-        navigate('/');
+        if (response.status == '204') {
+
+            setUser(null);
+
+            setErrors({});
+
+            navigate('/');
+
+        }
+
     };
 
     const registerHandler = async (data) => {

@@ -37,4 +37,16 @@ export const register = async (data) => {
     const result = user.json();
 
     return result;
-}
+};
+
+export const logout = async (user) => {
+
+    const result = await fetch(`${baseUrl}/logout`, {
+        method: 'GET',
+        headers: {
+            'X-Authorization': user.accessToken,
+        }
+    })
+    
+    return result;
+};
