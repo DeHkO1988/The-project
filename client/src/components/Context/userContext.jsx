@@ -52,7 +52,12 @@ export const UserProvider = ({
 
         const { repeatPassword, ...userInfo } = data;
 
-        if (repeatPassword.length >= 5 && repeatPassword === userInfo.password) {
+        //if ((repeatPassword.length >= 5 && repeatPassword === userInfo.password) && (userInfo.username.length > 5)) {
+        try {
+            if (repeatPassword.length < 5 || repeatPassword !== userInfo.password) {
+
+                throw (['pass', 'Repeat password length is less then 5 chars or dont match password!!!']);
+            }
 
             const token = await userService.register(data);
 
@@ -60,9 +65,15 @@ export const UserProvider = ({
 
             navigate('/');
 
-        } else {
-            setErrors(state =>( {...state, pass: 'Repeat password length is less then 5 chars or dont match password!!!'}))
+        } catch (err) {
+            console.log(err)
+            setErrors(state => ({ ...state, [err[0]] : err[1] }));
         }
+
+
+        //} else {
+        //setErrors(state => ({ ...state, pass: 'Repeat password length is less then 5 chars or dont match password!!!' }))
+        //}
 
 
     };
