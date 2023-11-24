@@ -14,10 +14,6 @@ export const Register = () => {
         repeatPassword: ''
     });
 
-    // const [errors, setErrors] = useState({
-    //     password: '',
-    // });
-
     const setInfoForRegistration = (e) => {
 
         setRegisterData(state => ({ ...state, [e.target.name]: e.target.value }));
@@ -31,16 +27,6 @@ export const Register = () => {
         registerHandler(registerData)
 
     };
-
-    // const errorHandler = () => {
-
-    //     if (registerData.password !== registerData.repeatPassword) {
-    //         setErrors({ ...errors, password: 'Repeat password is not same as password!' });
-    //     } else {
-    //         setErrors({ ...errors, password: '' });
-    //     };
-
-    // };
 
     return (
         <div className="page-wrap">
@@ -68,13 +54,14 @@ export const Register = () => {
                         <label htmlFor="password" className="label">Password</label>
                         <div className="row">
                             <input type="password" className="input column" name="password" id="password" autoComplete="off" value={registerData.password} onChange={setInfoForRegistration} />
+                            {errors.pass && <p>{errors.pass}</p>}
                             <input type="text" className="input column" name='1' hidden />
                         </div>
 
                         <label htmlFor="repeatPassword" className="label">Repeat password</label>
                         <div className="row">
                             <input type="password" className="input column" name="repeatPassword" id="repeatPassword" autoComplete="off" value={registerData.repeatPassword} onChange={setInfoForRegistration} />
-                            {errors.pass && <p>Error: {errors.pass}</p>}
+                            {errors.pass && <p>{errors.repeatPass}</p>}
                             <input type="text" className="input column" name='1' hidden />
                         </div>
 
