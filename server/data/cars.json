@@ -1,3 +1,17 @@
 {
-    
+    "35c62d76-8152-4626-8712-eeb96381bea8": {
+        "_ownerId": "35c62d76-8152-4626-8712-eeb96381bea8",
+        "brand": "Toyota",
+        "model": "Yaris",
+        "fuel": "petrol",
+        "type": "small car",
+        "price": "4 000",
+        "mileage": "123 000",
+        "registration": "2002",
+        "imageUrl": "https://cdn3.focus.bg/autodata/i/toyota/yaris/yaris-p1/large/cd8eb6070b6cb08ccf3a9d5190b73d77.jpg",
+        "description": "The Toyota Yaris is arguably the finest car of its generation. Winner of the 2000 European Car of the Year award, it manages to combine frankly amazing packaging with sparkling driveability and pert good looks. It's a car that is genuinely difficult to pick fault with and as a used buy is one of the most bulletproof purchases it's possible to make. All models and both engine choices are worthwhile and combine the ease and convenience of a citycar with the more relaxed major road manners of a supermini.",
+        "owner": "Peter",
+        "_createdOn": "1700847079052",
+        "_id": "b40bab3f-3c5a-4016-93dd-bbd1875896fd"
+    }
 }
