@@ -13,6 +13,7 @@ import { PageNotFound } from './components/PageNotFound/PageNotFound';
 
 import { UserProvider } from './components/Context/userContext';
 import { CarProvider } from './components/Context/carsContext';
+import { MyPosts } from './components/MyPosts/MyPosts';
 
 
 
@@ -33,6 +34,7 @@ function App() {
                         <Route path='/create' element={<Create />} />
                         <Route path='/details/:carId' element={<Details />} />
                         <Route path='/edit/:carId' element={<Edit />} />
+                        <Route path='/myPosts' element={<MyPosts />} />
                         <Route path='*' element={<PageNotFound />} />
                     </Routes>
 

@@ -58,4 +58,24 @@ export const edit = async (data, user, id) => {
     const result = await editedCar.json();
 
     return result;
-}
+};
+
+export const getMyPosts = async (userId) => {
+
+    const uri = encodeURI(`"${userId}"`);
+
+    try {
+        const myPosts = await fetch(`${baseUrl}?where=_ownerId%3D${uri}`);
+
+        const result = await myPosts.json();
+    
+        return result;
+        
+    } catch (error) {
+
+        alert (error);
+
+    }
+
+
+};

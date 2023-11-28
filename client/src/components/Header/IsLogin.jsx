@@ -1,8 +1,10 @@
 import { Link } from "react-router-dom";
 
+
 export const IsLogin = ({
     logoutHandler,
 }) => {
+
     return (
         <>
             <li onClick={logoutHandler}>
@@ -14,7 +16,7 @@ export const IsLogin = ({
             </li>
 
             <li >
-                <Link to="/create">My posts</Link>
+                <Link to="MyPosts">My posts</Link>
             </li>
         </>
     );

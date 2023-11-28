@@ -4,7 +4,17 @@ import { CarContext } from "../Context/carsContext";
 import * as carService from '../services/carService';
 
 export const Edit = () => {
-    const [car, setCar] = useState({});
+    const [car, setCar] = useState({
+        brand: '',
+        model: '',
+        fuel: '',
+        type: '',
+        price: '',
+        mileage: '',
+        registration: '',
+        imageUrl: '',
+        description: '',
+    });
     const {editCarHandler} = useContext(CarContext);
 
     const { carId } = useParams();

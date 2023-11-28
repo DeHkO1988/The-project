@@ -36,7 +36,7 @@ export const Catalog = () => {
 
                 </div>
                 :
-                <h1 className={style.denislav}>There are No offers yet!</h1>
+                <h1 className={style.catalog}>There are No offers yet!</h1>
             }
 
         </div>
