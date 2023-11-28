@@ -12,9 +12,6 @@ export const IsNotLogin = () => {
                 <Link to={"/Login"}>LogIn</Link>
             </li>
 
-            <li >
-                <Link to={"/Login"}>About</Link>
-            </li>
         </>
     );
 }

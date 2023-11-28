@@ -1,9 +1,10 @@
 .header{width:960px; margin:0 auto; overflow:hidden; position: relative;}
 .headerLeftPanel{width:35%; float:left;}
-.logoWrap{width:300px; float:left; background:#f3f3ee; overflow:hidden;}
-.logo{width:280px; float:left; margin-left:20px; margin-top:114px;}
-.logo h2{font-family: 'Ropa Sans', sans-serif; font-size:18px; color:#cf9359; text-transform:uppercase; font-weight:normal;}
-.logo h1{color:#50453b; font-size:42px; padding-bottom:22px;}
+.logoWrap{margin-top: 10px; height: 205px; width:300px; float:left; background:#f3f3ee; overflow:hidden; font-size: 20px; color:#cf9359; text-align: center; text-transform:uppercase}
+.logoWrap h2{text-align: end; position: bottom; margin-top: 45%;}
+.logo{width:280px; float:left; margin-left:20px; margin-top:65px;}
+/* .logo h2{font-family: 'Ropa Sans', sans-serif; font-size:18px; color:#cf9359; text-transform:uppercase; font-weight:normal;}
+.logo h1{color:#50453b; font-size:42px;} */
 .headerRightPanel{width:65%; float:right; overflow:hidden; margin-top:30px; height: 175px;}
 .headerRightPanelTop{width:380px; float:right; max-width:200px; text-align: center;}
 .headerRightPanel p{color: #f3f3ee; float:right; position: absolute; bottom: 35%; right: 0; font-size:20px; text-align:right; font-weight:bolder;}

@@ -14,19 +14,21 @@ export const Header = ({
 
     return (
         <div className={style.header}>
-            <div className={style.headerLeftPanel}>
-                <div className={style.logoWrap}>
-                    <div className={style.logo}>
-                        <h2>your slogan</h2>
-                        <h1>WebsiteName</h1>
+            <Link to={"/"}>
+                <div className={style.headerLeftPanel}>
+                    <div className={style.logoWrap}>
+                        <h2>share your fish tank ideas </h2>
+                        {/* <div className={style.logo}> */}
+                        {/* <h2>your slogan</h2> */}
+
+                        {/* </div> */}
                     </div>
                 </div>
-            </div>
+            </Link>
             <div className={style.headerRightPanel}>
                 <div className={style.headerRightPanelTop}>
-                    {user ? <p>Welcome {user.username}</p> : <p>Welcome GUEST</p>}
+                    {user ? <p>Welcome {user.email}</p> : <p>Welcome GUEST</p>}
 
-                    {/* <p> <a href="#">Mail Us : info@websitename.com</a></p> */}
                 </div>
                 <div className={style.menu}>
                     <ul>
@@ -35,13 +37,19 @@ export const Header = ({
 
 
 
+
                         <li className="marLeft20">
                             <Link to={"/catalog"}>Catalog</Link>
+                        </li>
+
+                        <li >
+                            <Link to={"/"}>About</Link>
                         </li>
 
                         <li className="marLeft20">
                             <Link to={'/'}>home</Link>
                         </li>
+
 
                     </ul>
                 </div>
