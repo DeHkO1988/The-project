@@ -29,7 +29,7 @@ export const MyPosts = () => {
 
                     {myPost.map(post => {
                         return (
-                            <div className="panel">
+                            <div className="panel" key={post._id}>
                                 <div className="img"><img className='image' src={post.imageUrl} /></div>
                                 <div className="title">
                                     <h1>{post.brand} {post.model}</h1>

@@ -13,6 +13,7 @@ import { PageNotFound } from './components/PageNotFound/PageNotFound';
 
 import { UserProvider } from './components/Context/userContext';
 import { CarProvider } from './components/Context/carsContext';
+
 import { MyPosts } from './components/MyPosts/MyPosts';
 import { About } from './components/About/About';
 
@@ -25,7 +26,9 @@ function App() {
             <UserProvider>
                 <CarProvider>
 
+
                     <Header />
+
 
                     <Routes >
                         <Route path='/' element={<Home />} />
@@ -41,6 +44,8 @@ function App() {
                     </Routes>
 
                     <Footer />
+
+
                 </CarProvider>
             </UserProvider>
         </>
