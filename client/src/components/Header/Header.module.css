@@ -5,11 +5,11 @@
 .logo h2{font-family: 'Ropa Sans', sans-serif; font-size:18px; color:#cf9359; text-transform:uppercase; font-weight:normal;}
 .logo h1{color:#50453b; font-size:42px; padding-bottom:22px;}
 .headerRightPanel{width:65%; float:right; overflow:hidden; margin-top:30px; height: 175px;}
-.headerRightPanelTop{width:280px; float:right;}
-.headerRightPanel p{color:#cf9359; float:right; font-size:14px; text-align:right; font-weight:normal;}
+.headerRightPanelTop{width:380px; float:right; max-width:200px; text-align: center;}
+.headerRightPanel p{color: #f3f3ee; float:right; position: absolute; bottom: 35%; right: 0; font-size:20px; text-align:right; font-weight:bolder;}
 
-.menu{width:100%; float:right; object-fit: fill; margin-top: 10%;}
-.menu ul li{float:right; padding-bottom:20px; }
-.menu ul li a{display:block; width:120px; height:40px; line-height:40px; background:#414141; font-family: 'Source Sans Pro', sans-serif; font-size:14px; color:#ffffff; text-align:center; text-transform:uppercase;}
+.menu{width:100%; position: absolute; bottom: 0; right: 0;}
+.menu ul li{float:inline-end; margin-left: 10px;}
+.menu ul li a{display:block; width:100px; height:40px; line-height:40px; background:#414141; font-family: 'Source Sans Pro', sans-serif; font-size:14px; color:#ffffff; text-align:center; text-transform:uppercase;}
 .menu ul li a:hover{background:#cf9359; color:#282828;}
 .menu ul li a.active{background:#cf9359; color:#282828;}

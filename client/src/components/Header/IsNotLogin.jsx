@@ -4,12 +4,16 @@ export const IsNotLogin = () => {
     return (
 
         <>
-            <li className="marLeft20">
+            <li >
                 <Link to="/register">Register</Link>
             </li>
 
-            <li className="marLeft20">
+            <li >
                 <Link to={"/Login"}>LogIn</Link>
+            </li>
+
+            <li >
+                <Link to={"/Login"}>About</Link>
             </li>
         </>
     );
