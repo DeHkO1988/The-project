@@ -44,4 +44,8 @@ export const addLike = async (user, carId) => {
     return result;
 };
 
-export const removelike = async (user, carId)
+export const removeLike = async (user, carId) => {
+
+    console.log('a')
+
+}

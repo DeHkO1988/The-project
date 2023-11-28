@@ -43,7 +43,7 @@ export const Details = () => {
     const unLikeHandler = async (e) => {
         e.preventDefault();
 
-        console.log("a")
+        await likeService.removeLike();
 
     }
 
