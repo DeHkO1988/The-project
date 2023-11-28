@@ -14,6 +14,7 @@ import { PageNotFound } from './components/PageNotFound/PageNotFound';
 import { UserProvider } from './components/Context/userContext';
 import { CarProvider } from './components/Context/carsContext';
 import { MyPosts } from './components/MyPosts/MyPosts';
+import { About } from './components/About/About';
 
 
 
@@ -28,6 +29,7 @@ function App() {
 
                     <Routes >
                         <Route path='/' element={<Home />} />
+                        <Route path='/about' element={<About />} />
                         <Route path='/login' element={<Login />} />
                         <Route path='/register' element={<Register />} />
                         <Route path='/catalog' element={<Catalog />} />
