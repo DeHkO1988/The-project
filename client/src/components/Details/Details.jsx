@@ -11,6 +11,7 @@ import style from "../Details/Details.module.css";
 export const Details = () => {
     const [car, setCar] = useState({});
     const [likes, setLikes] = useState([]);
+    const navigate = useNavigate();
 
     const { carId } = useParams();
     const { user } = useContext(UserContext);
@@ -40,12 +41,15 @@ export const Details = () => {
 
     };
 
-    const unLikeHandler = async (e) => {
+    const unLikeHandler = (e) => {
+
         e.preventDefault();
 
-        await likeService.removeLike();
+        likeService.removeLike(user._id, user.accessToken, carId);
 
-    }
+        setLikes(state => state.filter(likes => likes._ownerId !== user._id));
+
+    };
 
     const isLike = likes.filter(x => x._ownerId === user?._id).length > 0;
 
