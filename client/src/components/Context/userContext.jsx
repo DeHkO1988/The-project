@@ -19,7 +19,7 @@ export const UserProvider = ({
         e.preventDefault();
 
         try {
-
+            
             const token = await userService.login(data);
 
             setUser(token);
@@ -27,7 +27,9 @@ export const UserProvider = ({
             navigate('/');
 
         } catch (error) {
+
             setErrors(state => ({ ...state, login: error }));
+
         };
 
     };

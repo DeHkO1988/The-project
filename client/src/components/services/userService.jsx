@@ -15,7 +15,7 @@ export const login = async (data) => {
 
     if (!user.ok) {
         throw new Error(result.message);
-    }
+    };
 
     return result;
 
@@ -23,31 +23,50 @@ export const login = async (data) => {
 
 export const register = async (data) => {
 
-    const user = await fetch(`${baseUrl}/register`, {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
-            email: data.email,
-            username: data.username,
-            password: data.password,
-        })
-    });
+    try {
+        const user = await fetch(`${baseUrl}/register`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                email: data.email,
+                username: data.username,
+                password: data.password,
+            })
+        });
 
-    const result = user.json();
+        const result = user.json();
 
-    return result;
+        return result;
+
+    } catch (error) {
+
+        alert(error);
+
+        return
+    }
+
 };
 
 export const logout = async (user) => {
 
-    const result = await fetch(`${baseUrl}/logout`, {
-        method: 'GET',
-        headers: {
-            'X-Authorization': user.accessToken,
-        }
-    })
+    try {
 
-    return result;
+        const result = await fetch(`${baseUrl}/logout`, {
+            method: 'GET',
+            headers: {
+                'X-Authorization': user.accessToken,
+            }
+        })
+
+        return result;
+
+    } catch (error) {
+
+        alert(error);
+
+        return;
+    }
+
 };

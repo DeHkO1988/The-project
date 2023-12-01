@@ -27,37 +27,61 @@ export const getAllLikes = async (carId) => {
 
 export const addLike = async (user, carId) => {
 
-    const like = await fetch(baseUrl, {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-            'X-Authorization': `${user.accessToken}`,
-        },
-        body: JSON.stringify({
-            owner: user.username,
-            postId: carId,
-        }),
-    });
+    try {
 
-    const result = await like.json();
+        const like = await fetch(baseUrl, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'X-Authorization': `${user.accessToken}`,
+            },
+            body: JSON.stringify({
+                owner: user.username,
+                postId: carId,
+            }),
+        });
 
-    return result;
+        const result = await like.json();
+
+        return result;
+
+    } catch (error) {
+
+        alert(error);
+
+        return;
+
+    }
+
+
 };
 
 export const removeLike = async (userId, userAccessToken, carId, likes) => {
 
-    const url = `${baseUrl}?where=postId%3D%22${carId}%22 AND _ownerId%3D%22${userId}%22`;
+    try {
 
-    const likeId = await fetch(url);
+        const url = `${baseUrl}?where=postId%3D%22${carId}%22 AND _ownerId%3D%22${userId}%22`;
 
-    const result = await likeId.json();
+        const likeId = await fetch(url);
 
-    await fetch(`${baseUrl}/${result[0]._id}`, {
-        method: 'DELETE',
-        headers: {
-            //'Content-Type': 'application/json',
-            'X-Authorization': userAccessToken,
-        },
-    });
+        const result = await likeId.json();
+
+        await fetch(`${baseUrl}/${result[0]._id}`, {
+            method: 'DELETE',
+            headers: {
+                'Content-Type': 'application/json',
+                'X-Authorization': userAccessToken,
+            },
+        });
+
+    } catch (error) {
+
+        alert(error);
+
+        return;
+
+    }
+
+
 
 };

@@ -40,7 +40,7 @@ export const Login = ({
                         <h1 className='border'>Log In</h1>
                     </div>
 
-                    {errors.login && <p className={style.error}>Error: Login or password don't match!</p>}
+                    {errors.login && <p className={style.error}>Error: Username or password don't match!</p>}
 
                     <div className="searchbox">
 
