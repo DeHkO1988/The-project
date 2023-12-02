@@ -32,11 +32,10 @@ export const MyPosts = () => {
                             <div className="panel" key={post._id}>
                                 <div className="img"><img className='image' src={post.imageUrl} /></div>
                                 <div className="title">
-                                    <h1>{post.brand} {post.model}</h1>
+                                    <h1>{post.brand}</h1>
                                 </div>
                                 <div className="border"></div>
                                 <div className="content">
-                                    <p>{post.price} $</p>
                                     <div className="button-link"><Link to={`/details/${post._id}`}>details</Link></div>
                                 </div>
                             </div>
