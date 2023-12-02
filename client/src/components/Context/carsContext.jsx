@@ -22,6 +22,36 @@ export const CarProvider = ({
     const createCarHandler = async (e, data) => {
         e.preventDefault();
 
+        if (data.brand.length < 5) {
+            alert('brand length too short');
+            return;
+        };
+
+        if (data.fuel.length < 5) {
+            alert('fuel length too short');
+            return;
+        };
+
+        if (data.mileage <= 0) {
+            alert('have to be positive number');
+            return;
+        };
+
+        if (data.registration < 1900 || data.registration > 2023) {
+            alert('Year of manufacture between 1900 and 2023');
+            return;
+        };
+
+        // if(data.image ) {
+        //     alert('');
+        //     return;
+        // };
+
+        if (data.description.length < 10) {
+            alert('Opinion at least 10 chars.');
+            return;
+        };
+
         const newCar = await carService.create(data, user);
 
         setAllCars(state => [...state, newCar]);
