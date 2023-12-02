@@ -63,6 +63,36 @@ export const CarProvider = ({
     const editCarHandler = async (e, car, carId) => {
         e.preventDefault();
 
+        if (car.brand.length < 5) {
+            alert('brand length too short');
+            return;
+        };
+
+        if (car.fuel.length < 5) {
+            alert('fuel length too short');
+            return;
+        };
+
+        if (car.mileage <= 0) {
+            alert('have to be positive number');
+            return;
+        };
+
+        if (car.registration < 1900 || car.registration > 2023) {
+            alert('Year of manufacture between 1900 and 2023');
+            return;
+        };
+
+        if(car.image ) {
+            alert('');
+            return;
+        };
+
+        if (car.description.length < 10) {
+            alert('Opinion at least 10 chars.');
+            return;
+        };
+
         const editedCar = await carService.edit(car, user, carId);
 
         const newState = allCars.map(x => x._id === editedCar._id ? editedCar : x);
