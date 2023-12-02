@@ -16,6 +16,7 @@ import { CarProvider } from './components/Context/carsContext';
 
 import { MyPosts } from './components/MyPosts/MyPosts';
 import { About } from './components/About/About';
+import { RouteGuard } from './components/RouteGuard/RouteGuard';
 
 
 
@@ -36,10 +37,23 @@ function App() {
                         <Route path='/login' element={<Login />} />
                         <Route path='/register' element={<Register />} />
                         <Route path='/catalog' element={<Catalog />} />
-                        <Route path='/create' element={<Create />} />
+                        <Route path='/create' element={
+                            <RouteGuard>
+                                <Create />
+                            </RouteGuard>
+
+                        } />
                         <Route path='/details/:carId' element={<Details />} />
-                        <Route path='/edit/:carId' element={<Edit />} />
-                        <Route path='/myPosts' element={<MyPosts />} />
+                        <Route path='/edit/:carId' element={
+                            <RouteGuard>
+                                <Edit />
+                            </RouteGuard>
+                        } />
+                        <Route path='/myPosts' element={
+                            <RouteGuard>
+                                <MyPosts />
+                            </RouteGuard>
+                        } />
                         <Route path='*' element={<PageNotFound />} />
                     </Routes>
 
