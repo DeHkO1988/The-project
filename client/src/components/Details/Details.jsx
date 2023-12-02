@@ -62,20 +62,20 @@ export const Details = () => {
                     <div className="mid-panel marginTop">
                         <div className="mid-panel-content ">
                             <div className="title">
-                                <h1>{car.brand} {car.model}</h1>
+                                <h1>{car.brand}</h1>
                                 <p className={style.likeCounter}>Likes: {likes.length}</p>
                             </div>
                             <div className="border"></div>
                             <div>
                                 <img className="catalogImage image" src={car.imageUrl} />
                                 <h2>Owner: {car.owner}</h2>
-                                <p><strong>First Registration:</strong> {car.registration} year</p>
+                                <p><strong>Year of manufacture:</strong> {car.registration} year</p>
                                 <p><strong>Fuel type:</strong> {car.fuel}</p>
-                                <p><strong>Type:</strong> {car.type}</p>
-                                <p><strong>Price:</strong> {car.price} $</p>
+                                {/* <p><strong>Type:</strong> {car.type}</p> */}
+                                {/* <p><strong>Price:</strong> {car.price} $</p> */}
                                 <p><strong>Mileage:</strong> {car.mileage} km</p>
 
-                                <p className="padBottom"><strong>Description:</strong> {car.description}</p>
+                                <p className="padBottom"><strong>Opinion:</strong> {car.description}</p>
                             </div>
                             {user && (
                                 <>

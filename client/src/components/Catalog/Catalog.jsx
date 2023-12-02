@@ -26,8 +26,6 @@ export const Catalog = () => {
                                 _id={car._id}
                                 image={car.imageUrl}
                                 brand={car.brand}
-                                model={car.model}
-                                price={car.price}
                             />
                         );
                     })}

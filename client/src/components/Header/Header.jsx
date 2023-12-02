@@ -17,7 +17,7 @@ export const Header = ({
             <Link to={"/"}>
                 <div className={style.headerLeftPanel}>
                     <div className={style.logoWrap}>
-                        <h2>share your fish tank ideas </h2>
+                        <h2>CAR ADVICES</h2>
                         {/* <div className={style.logo}> */}
                         {/* <h2>your slogan</h2> */}
 

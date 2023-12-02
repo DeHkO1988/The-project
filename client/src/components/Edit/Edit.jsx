@@ -15,7 +15,7 @@ export const Edit = () => {
         imageUrl: '',
         description: '',
     });
-    const {editCarHandler} = useContext(CarContext);
+    const { editCarHandler } = useContext(CarContext);
 
     const { carId } = useParams();
 
@@ -44,54 +44,60 @@ export const Edit = () => {
                         <label htmlFor="brand" className="label">Brand</label>
                         <div className="row">
                             <input type="text" className="input column" name='brand' id="brand" value={car.brand} onChange={editCarInfo} />
+                            <p>At least 5 chars.</p>
                             <input type="text" className="input column" name='1' hidden />
                         </div>
 
-                        <label htmlFor="model" className="label">Model</label>
+                        {/* <label htmlFor="model" className="label">Model</label>
                         <div className="row">
                             <input type="text" className="input column" name='model' id="model" value={car.model} onChange={editCarInfo} />
                             <input type="text" className="input column" name='1' hidden />
-                        </div>
+                        </div> */}
 
                         <label htmlFor="fuel" className="label">Fuel type</label>
                         <div className="row">
                             <input type="text" className="input column" name='fuel' id="fuel" value={car.fuel} onChange={editCarInfo} />
+                            <p>At least 5 chars.</p>
                             <input type="text" className="input column" name='1' hidden />
                         </div>
 
-                        <label htmlFor="type" className="label">Type</label>
+                        {/* <label htmlFor="type" className="label">Type</label>
                         <div className="row">
                             <input type="text" className="input column" name='type' id="type" value={car.type} onChange={editCarInfo} />
                             <input type="text" className="input column" name='1' hidden />
-                        </div>
+                        </div> */}
 
-                        <label htmlFor="price" className="label">Price</label>
+                        {/* <label htmlFor="price" className="label">Price</label>
                         <div className="row">
                             <input type="text" className="input column" name='price' id="price" value={car.price} onChange={editCarInfo} />
                             <input type="text" className="input column" name='1' hidden />
-                        </div>
+                        </div> */}
 
                         <label htmlFor="mileage" className="label">Mileage</label>
                         <div className="row">
-                            <input type="text" className="input column" name='mileage' id="mileage" value={car.mileage} onChange={editCarInfo} />
+                            <input type="number" className="input column" name='mileage' id="mileage" value={car.mileage} onChange={editCarInfo} />
+                            <p>Have to be number.</p>
                             <input type="text" className="input column" name='1' hidden />
                         </div>
 
-                        <label htmlFor="registration" className="label">First registration</label>
+                        <label htmlFor="registration" className="label">Year of manufacture</label>
                         <div className="row">
-                            <input type="text" className="input column" name='registration' id="registration" value={car.registration} onChange={editCarInfo} />
+                            <input type="number" className="input column" name='registration' id="registration" value={car.registration} onChange={editCarInfo} />
+                            <p>Number between 1900 and 2023.</p>
                             <input type="text" className="input column" name='1' hidden />
                         </div>
 
                         <label htmlFor="imageUrl" className="label">Image</label>
                         <div className="row">
                             <input type="text" className="input column" name='imageUrl' id="imageUrl" value={car.imageUrl} onChange={editCarInfo} />
+                            <p>Picture URL.</p>
                             <input type="text" className="input column" name='1' hidden />
                         </div>
 
-                        <label htmlFor="description" className="label">Description</label>
+                        <label htmlFor="description" className="label">Opinion</label>
                         <div className="row">
                             <textarea className="input text" name='description' id="description" value={car.description} onChange={editCarInfo}></textarea>
+                            <p>At least 10 chars.</p>
                             <input type="text" className="input column" name='1' hidden />
                         </div>
 
