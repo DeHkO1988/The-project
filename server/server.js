@@ -1340,24 +1340,50 @@
         }
     };
     var seedData = {
-        cars: {
-            // '35c62d76 - 8152 - 4626 - 8712 - eeb96381bea8': {
-            //     _ownerId: "35c62d76-8152-4626-8712-eeb96381bea8",
-            //     brand: "Toyota",
-            //     model: "Yaris",
-            //     fuel: "petrol",
-            //     type: "small car",
-            //     price: "4 000",
-            //     mileage: "123 000",
-            //     registration: "2002",
-            //     imageUrl: "https://cdn3.focus.bg/autodata/i/toyota/yaris/yaris-p1/large/cd8eb6070b6cb08ccf3a9d5190b73d77.jpg",
-            //     description: "The Toyota Yaris is arguably the finest car of its generation. Winner of the 2000 European Car of the Year award, it manages to combine frankly amazing packaging with sparkling driveability and pert good looks. It's a car that is genuinely difficult to pick fault with and as a used buy is one of the most bulletproof purchases it's possible to make. All models and both engine choices are worthwhile and combine the ease and convenience of a citycar with the more relaxed major road manners of a supermini.",
-            //     owner: "Peter",
-            //     _createdOn: "1700847079052",
-            //     _id: "b40bab3f-3c5a-4016-93dd-bbd1875896fd"
-            // }
+        cars: [
+            {
+                _ownerId: "35c62d76-8152-4626-8712-eeb96381bea8",
+                brand: "Toyota Yaris",
+                fuel: "petrol",
+                price: "4001",
+                mileage: "123000",
+                registration: "2002",
+                imageUrl: "https://cdn3.focus.bg/autodata/i/toyota/yaris/yaris-p1/large/cd8eb6070b6cb08ccf3a9d5190b73d77.jpg",
+                description: "The Toyota Yaris is arguably the finest car of its generation. Winner of the 2000 European Car of the Year award, it manages to combine frankly amazing packaging with sparkling driveability and pert good looks. It's a car that is genuinely difficult to pick fault with and as a used buy is one of the most bulletproof purchases it's possible to make. All models and both engine choices are worthwhile and combine the ease and convenience of a citycar with the more relaxed major road manners of a supermini.",
+                owner: "Peter",
+                _createdOn: "1700847079052",
+                _id: "b40bab3f-3c5a-4016-93dd-bbd1875896fd"
+            },
 
-        },
+            {
+                _ownerId: "35c62d76-8152-4626-8712-eeb96381bea8",
+                brand: "Ferrari 812GTS",
+                fuel: "petrol",
+                price: "433765",
+                mileage: "50000",
+                registration: "2023",
+                imageUrl: "https://hips.hearstapps.com/hmg-prod/images/2023-ferrari-812-gts-102-1674153867.jpg?crop=1.00xw:0.707xh;0,0.152xh&resize=1200:*",
+                description: "The Ferrari 812GTS sits at the intersection of speed and luxury, delivering both the boisterous wail of 789 prancing horses and the satisfying refinement of a cabin lined with Italian leather. It is Jekyll-and-Hyde duality in the extreme. This front-engine, rear-drive supercar is equally adept at whisking you comfortably to dinner at a three-star Michelin restaurant and mashing your innards together with its seemingly limitless performance. ",
+                owner: "Peter",
+                _createdOn: "1700847079060",
+                _id: "b40bab3f-3c5a-4016-93dd-bbd1875896fd"
+            },
+
+            {
+                _ownerId: "35c62d76-8152-4626-8712-eeb96381bea8",
+                brand: "Toyota Corolla Verso II",
+                fuel: "petrol",
+                price: "7500",
+                mileage: "239000",
+                registration: "2008",
+                imageUrl: "https://cdn3.focus.bg/autodata/i/toyota/corolla/corolla-verso-ii/large/0a179c0169b8a628102c13ee5783af0f.jpg",
+                description: "Още през 2001 г. компактният ван излезе на европейската сцена под името Corolla Versо. През 2004 г. моделът на Toyota се появи в ново поколение със съвременни мощни мотори. Най-новата генерация е на пазара от 2009 г. и се нарича Toyota Versо. Тя обединява в един модел предишните компактни ванове на базата на Corolla и Avensis",
+                owner: "Peter",
+                _createdOn: "1700847079070",
+                _id: "b40bab3f-3c5a-4016-93dd-bbd1875896fd"
+            }
+
+        ],
         recipes: {
             "3987279d-0ad4-4afb-8ca9-5b256ae3b298": {
                 _ownerId: "35c62d76-8152-4626-8712-eeb96381bea8",
