@@ -23,29 +23,26 @@ export const login = async (data) => {
 
 export const register = async (data) => {
 
-    try {
-        const user = await fetch(`${baseUrl}/register`, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({
-                email: data.email,
-                username: data.username,
-                password: data.password,
-            })
-        });
 
-        const result = user.json();
+    const user = await fetch(`${baseUrl}/register`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            email: data.email,
+            username: data.username,
+            password: data.password,
+        })
+    });
 
-        return result;
+    if (!user.ok) {
+        throw ('E-mail already taken.');
+    };
 
-    } catch (error) {
+    const result = user.json();
 
-        alert(error);
-
-        return
-    }
+    return result;
 
 };
 

@@ -19,7 +19,7 @@ export const UserProvider = ({
         e.preventDefault();
 
         try {
-            
+
             const token = await userService.login(data);
 
             setUser(token);
@@ -78,11 +78,21 @@ export const UserProvider = ({
 
         };
 
-        const token = await userService.register(data);
+        try {
 
-        setUser(token);
+            const token = await userService.register(data);
 
-        navigate('/');
+            setUser(token);
+
+            navigate('/');
+
+        } catch (error) {
+
+            alert(error);
+
+            return
+
+        }
 
     };
 
