@@ -1,6 +1,6 @@
 
 *{margin:0; padding:0; font-family: 'Ropa Sans', sans-serif;}
-body{background:rgb(41, 36, 36);}
+body{background:url('../public/images/b699b77d8dc2b0882147066672a2475d.jpg');}
 
 p{font-family: 'Ropa Sans', sans-serif; color:#978e86; font-size:14px; font-weight:normal; line-height:20px;}
 a{text-decoration:none; color:#cf9359;}
@@ -61,7 +61,7 @@ HEADER CLASSES
 /*-------------------------------------------------
 PANEL CLASSES
 -------------------------------------------------*/
-.panel-wrap{width:100%; background:rgb(160, 190, 160); overflow:hidden; margin-top:20px;}
+.panel-wrap{width:100%; background:url('../public//images/header_logo.png'); overflow:hidden; margin-top:20px;}
 .panel-wrapper{width:960px; margin:0 auto; overflow:auto; margin-top:10px; padding-bottom:300px;}
 
 .panel-wrapper .panel{width:260px; background:#f3f3ee; float:left; padding:20px; margin-top: 10px; margin-left: 10px; margin-right: 10px;}
@@ -76,7 +76,7 @@ PANEL CLASSES
 /*-------------------------------------------------
 TOP PANEL CLASSES
 -------------------------------------------------*/
-.page-wrap{width:100%; background:rgb(160, 190, 160); overflow:auto; margin-top: 20px;}
+.page-wrap{width:100%; background:url('../public//images/header_logo.png'); overflow:auto; margin-top: 20px;}
 .top-content{width:960px;  background:#f3f3ee; margin:0 auto; margin-top:50px; }
 .top-content h1{padding-top:26px; padding-left:20px; padding-bottom: 26px; text-align: center;}
 .top-content p{ margin-left:20px; margin-right:20px;}
