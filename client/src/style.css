@@ -62,7 +62,7 @@ HEADER CLASSES
 PANEL CLASSES
 -------------------------------------------------*/
 .panel-wrap{width:100%; background:url('/images/header_logo.png'); overflow:hidden; margin-top:20px; background-size: cover;}
-.panel-wrapper{width:960px; margin:0 auto; overflow:auto; margin-top:10px; padding-bottom:300px;}
+.panel-wrapper{width:960px; margin:0 auto; overflow:hidden; margin-top:10px; padding-bottom:300px;}
 
 .panel-wrapper .panel{width:260px; background:#f3f3ee; float:left; padding:20px; margin-top: 10px; margin-left: 10px; margin-right: 10px;}
 .panel-wrapper .image{ width:  250px; height: 250px; object-fit:fill;}
@@ -123,8 +123,8 @@ PRIMARY CONTENT CLASSS
 /*-------------------------------------------------
 SIDEBAR CLASSS
 -------------------------------------------------*/
-.search-panel{width:50%; background:#f3f3ee; overflow:visible; margin: auto; height:auto; padding-bottom: 30px;}
-.search-panel .content{width:75%; margin:auto; margin-top:30px; padding-bottom:30px; overflow: visible; text-align: center;}
+.search-panel{width:50%; background:#f3f3ee; overflow:visible; margin: auto; height:820px;}
+.search-panel .content{width:75%; margin:auto; margin-top:30px; overflow: visible; text-align: center;}
 .search-panel .content h2{font-size:14px; color:#cf9359; padding-top:20px; font-weight:normal; padding-bottom:10px;}
 .search-panel .title h1{color:#50453b; font-weight:normal; margin: auto; text-align: center; margin-bottom: 30px; padding-top: 20px;}
 .search-panel .border{border-bottom:1px solid #dadacb; margin-top:15px;}

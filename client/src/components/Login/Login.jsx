@@ -33,7 +33,6 @@ export const Login = ({
 
     return (
         <div className="page-wrap">
-            <div className="top-border"></div>
             <form className="search-panel" onSubmit={onSubmit}>
                 <div className="content">
                     <div className="title">

@@ -40,7 +40,6 @@ export const Register = () => {
 
     return (
         <div className="page-wrap">
-            <div className="top-border"></div>
             <form className="search-panel" onSubmit={onSubmitHandler}>
                 <div className="content">
                     <div className="title">
