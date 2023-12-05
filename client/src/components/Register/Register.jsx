@@ -57,7 +57,6 @@ export const Register = () => {
                                 :
                                 <p>Valid e-mail address.</p>
                             }
-                            {/* <p className={errors.email ? style.error : ''}>Valid e-mail address.</p> */}
                             <input type="text" className="input column" name='1' hidden />
                         </div>
 

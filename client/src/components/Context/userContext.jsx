@@ -9,11 +9,9 @@ export const UserContext = createContext();
 export const UserProvider = ({
     children
 }) => {
-    const initialErrors = {
-        email: null,
-    }
+
     const [user, setUser] = useState(null);
-    const [errors, setErrors] = useState(initialErrors);
+    const [errors, setErrors] = useState({});
     const navigate = useNavigate();
 
     const loginHandler = async (e, data) => {
@@ -54,8 +52,6 @@ export const UserProvider = ({
 
     const registerHandler = async (data) => {
 
-        const { repeatPassword, ...userInfo } = data;
-
         try {
 
             const token = await userService.register(data);
@@ -75,8 +71,7 @@ export const UserProvider = ({
     };
 
     const errorCleaner = () => {
-        setErrors(initialErrors);
-        //console.log(Object.keys(errors))
+        setErrors({});
     };
 
     const contextValues = {
