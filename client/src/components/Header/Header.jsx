@@ -17,7 +17,7 @@ export const Header = ({
             <Link to={"/"}>
                 <div className={style.headerLeftPanel}>
                     <div className={style.logoWrap}>
-                        <img src="../../../public/images/car-auto-line-icon-simple-modern-flat-illustration-for-mobile-app-website-or-desktop-app-on-gray-background-vector.jpg"/>
+                        <img src="/images/car-auto-line-icon-simple-modern-flat-illustration-for-mobile-app-website-or-desktop-app-on-gray-background-vector.jpg"/>
                         <h2>Cars Help Info</h2>
                         {/* <div className={style.logoWrapLogo}></div> */}
                         

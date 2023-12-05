@@ -14,7 +14,7 @@ export const login = async (data) => {
     const result = await user.json();
 
     if (!user.ok) {
-        throw new Error(result.message);
+        throw (result.message);
     };
 
     return result;
