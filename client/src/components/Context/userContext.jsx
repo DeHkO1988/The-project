@@ -12,11 +12,14 @@ export const UserProvider = ({
 
     const [user, setUser] = useState(null);
     const [errors, setErrors] = useState({});
+    const [loader, setLoader] = useState(false);
     const navigate = useNavigate();
 
     const loginHandler = async (e, data) => {
 
         e.preventDefault();
+
+        setLoader(true);
 
         try {
 
@@ -30,7 +33,9 @@ export const UserProvider = ({
 
             setErrors(state => ({ ...state, login: error }));
 
-        };
+        } finally {
+            setLoader(false);
+        }
 
     };
 
@@ -80,7 +85,8 @@ export const UserProvider = ({
         registerHandler,
         errorCleaner,
         user: user,
-        errors: errors
+        errors: errors,
+        loader: loader
     }
 
     return (

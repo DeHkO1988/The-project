@@ -19,7 +19,6 @@ import { About } from './components/About/About';
 import { RouteGuard } from './components/RouteGuard/RouteGuard';
 
 
-
 function App() {
 
     return (
@@ -29,7 +28,6 @@ function App() {
 
 
                     <Header />
-
 
                     <Routes >
                         <Route path='/' element={<Home />} />

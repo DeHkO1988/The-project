@@ -2,4 +2,31 @@
     font-size: large;
     font-style: normal;
     color: rgb(221, 21, 21);
+    padding-bottom: 20px;
+    text-align: center;
+}
+
+.input {
+    width: 50%;
+    height: 25px;
+    background: #e5e2d3;
+    border: 0px;
+    font-size: 14px;
+    color: #978e86;
+    margin-bottom: 20px;
+}
+
+.border {
+    border-bottom: 1px solid #dadacb;
+    margin-top: 10px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.button {
+    width: 70px;
+    height: 40px;
+    background: #cf9359;
+    
+
 }

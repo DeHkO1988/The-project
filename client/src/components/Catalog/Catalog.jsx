@@ -6,7 +6,7 @@ import style from "./Catalog.module.css";
 
 export const Catalog = () => {
 
-    const { allCars } = useContext(CarContext);
+    const { allCars, loader } = useContext(CarContext);
 
     return (
         <div className="panel-wrap">
