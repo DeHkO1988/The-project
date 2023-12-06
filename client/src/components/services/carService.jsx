@@ -67,28 +67,18 @@ export const deleteCar = async (carId, user) => {
 
 export const create = async (data, user) => {
 
-    try {
+    const newCar = await fetch(baseUrl, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'X-Authorization': `${user.accessToken}`,
+        },
+        body: JSON.stringify({ ...data, owner: user.username }),
+    });
 
-        const newCar = await fetch(baseUrl, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-                'X-Authorization': `${user.accessToken}`,
-            },
-            body: JSON.stringify({ ...data, owner: user.username }),
-        });
+    const result = await newCar.json();
 
-        const result = await newCar.json();
-
-        return result;
-
-    } catch (error) {
-
-        alert(error);
-
-        return;
-
-    };
+    return result;
 
 };
 
