@@ -47,15 +47,15 @@ export const Login = ({
 
                                     <div className="">
 
-                                        <label className="" htmlFor="email">Email</label>
+                                        <label className="" htmlFor="email">E-mail</label>
                                         <div className="row">
-                                            <input type="text" className={style.input} name="email" id="email" value={login.email} onChange={loginData} autoComplete="off" />
+                                            <input type="text" className={style.input} name="email" id="email" value={login.email} onChange={loginData} autoComplete="on" />
 
                                         </div>
 
                                         <label className="" htmlFor="password">Password</label>
                                         <div className="row">
-                                            <input type="password" className={style.input} name="password" id="password" value={login.password} onChange={loginData} autoComplete="off" />
+                                            <input type="password" className={style.input} name="password" id="password" value={login.password} onChange={loginData} autoComplete="on" />
 
                                         </div>
                                         

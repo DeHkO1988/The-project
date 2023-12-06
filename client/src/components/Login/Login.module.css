@@ -2,7 +2,7 @@
     font-size: large;
     font-style: normal;
     color: rgb(221, 21, 21);
-    padding-bottom: 20px;
+    margin-bottom: 10px;
     text-align: center;
 }
 
@@ -27,6 +27,4 @@
     width: 70px;
     height: 40px;
     background: #cf9359;
-    
-
 }

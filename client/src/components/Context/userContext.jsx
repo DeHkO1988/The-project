@@ -57,6 +57,8 @@ export const UserProvider = ({
 
     const registerHandler = async (data) => {
 
+        setLoader(true);
+
         try {
 
             const token = await userService.register(data);
@@ -71,6 +73,8 @@ export const UserProvider = ({
 
             return;
 
+        } finally {
+            setLoader(false);
         }
 
     };

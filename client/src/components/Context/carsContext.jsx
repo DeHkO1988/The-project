@@ -11,6 +11,7 @@ export const CarProvider = ({
     children
 }) => {
     const [allCars, setAllCars] = useState([]);
+    const [loader, setLoader] = useState(false);
     const navigate = useNavigate();
     const { user } = useContext(UserContext);
 
@@ -21,11 +22,25 @@ export const CarProvider = ({
 
     const createCarHandler = async (data) => {
 
-        const newCar = await carService.create(data, user);
+        setLoader(true);
 
-        setAllCars(state => [...state, newCar]);
+        try {
 
-        navigate('/catalog');
+            const newCar = await carService.create(data, user);
+
+            setAllCars(state => [...state, newCar]);
+
+            navigate('/catalog');
+
+        } catch (error) {
+
+            alert (error);
+
+        } finally {
+
+            setLoader(false)
+
+        }
 
     };
 
@@ -52,7 +67,7 @@ export const CarProvider = ({
             return;
         };
 
-        if(car.image ) {
+        if (car.image) {
             alert('');
             return;
         };
@@ -87,6 +102,7 @@ export const CarProvider = ({
         deleteCarHandler,
         editCarHandler,
         allCars: allCars,
+        loader: loader,
     };
 
     return (

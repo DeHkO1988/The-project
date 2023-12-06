@@ -25,7 +25,7 @@ export const test = (registerData) => {
     };
 
     if (registerData.repeatPassword !== registerData.password || registerData.repeatPassword.length < 5) {
-        result.repeatPassword = 'Repeat pass do not match password or less then 5 chars.';
+        result.repeatPassword = 'Repeat pass don\'t match password or less then 5 chars.';
     } else {
         delete result.repeatPassword;
     };
