@@ -8,6 +8,8 @@
     -webkit-animation: spin 2s linear infinite;
     animation: spin 2s linear infinite;
     margin: auto;
+    margin-top: 25%;
+
 }
 
 @-webkit-keyframes spin {
