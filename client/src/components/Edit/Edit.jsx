@@ -4,6 +4,7 @@ import { CarContext } from "../Context/carsContext";
 import * as carService from '../services/carService';
 import style from '../Edit/Edit.module.css';
 import { Loader } from '../Loader/Loader';
+import { validation } from '../Edit/validation';
 
 export const Edit = () => {
     const [car, setCar] = useState({
@@ -16,7 +17,7 @@ export const Edit = () => {
     });
 
     const [loader, setLoader] = useState(false);
-
+    const [errors, setErrors] = useState({});
     const { editCarHandler } = useContext(CarContext);
 
     const { carId } = useParams();
@@ -32,16 +33,30 @@ export const Edit = () => {
         const result = setCar(({ ...car, [e.target.name]: e.target.value }));
     };
 
+    const editCarSubmit = (e) => {
+        e.preventDefault();
+
+        setErrors(validation(car));
+
+        const isValidate = validation(car);
+        const noErrors = {};
+
+        if (JSON.stringify(isValidate) === JSON.stringify(noErrors)) {
+            editCarHandler(car, carId);
+        }
+
+    };
+
     return (
         <section className="page-wrap">
             <div className="page-wrapper">
                 <div className="primary-content">
-                    
+
                     {loader ? <Loader />
                         :
                         <div className="mid-panel">
 
-                            <form className="mid-panel-content" onSubmit={(e) => editCarHandler(e, car, carId)}>
+                            <form className="mid-panel-content" onSubmit={editCarSubmit}>
                                 <div className="content">
                                     <div className="title">
                                         <h1 className={style.border}>Edit</h1>
@@ -52,37 +67,61 @@ export const Edit = () => {
                                         <label htmlFor="brand" className="label">Brand</label>
                                         <div className={style.row}>
                                             <input type="text" className={style.input} name='brand' id="brand" value={car.brand} onChange={editCarInfo} />
-                                            <p className={style.info}>At least 5 chars.</p>
+                                            {errors.brand ?
+                                                <p className={style.validation}>{errors.brand}</p>
+                                                :
+                                                <p className={style.info}>At least 5 chars.</p>
+                                            }
                                         </div>
 
                                         <label htmlFor="fuel" className="label">Fuel type</label>
                                         <div className={style.row}>
                                             <input type="text" className={style.input} name='fuel' id="fuel" value={car.fuel} onChange={editCarInfo} />
-                                            <p className={style.info}>At least 5 chars.</p>
+                                            {errors.fuel ?
+                                                <p className={style.validation}>{errors.fuel}</p>
+                                                :
+                                                <p className={style.info}>At least 5 chars.</p>
+                                            }
                                         </div>
 
                                         <label htmlFor="mileage" className="label">Mileage</label>
                                         <div className={style.row}>
                                             <input type="number" className={style.input} name='mileage' id="mileage" value={car.mileage} onChange={editCarInfo} />
-                                            <p className={style.info}>Have to be number.</p>
+                                            {errors.mileage ?
+                                                <p className={style.validation}>{errors.mileage}</p>
+                                                :
+                                                <p className={style.info}>Have to be number.</p>
+                                            }
                                         </div>
 
                                         <label htmlFor="registration" className="label">Year of manufacture</label>
                                         <div className={style.row}>
                                             <input type="number" className={style.input} name='registration' id="registration" value={car.registration} onChange={editCarInfo} />
-                                            <p className={style.info}>Number between 1900 and 2023.</p>
+                                            {errors.registration ?
+                                                <p className={style.validation}>{errors.registration}</p>
+                                                :
+                                                <p className={style.info}>Number between 1900 and 2023.</p>
+                                            }
                                         </div>
 
                                         <label htmlFor="imageUrl" className="label">Image</label>
                                         <div className={style.row}>
                                             <input type="text" className={style.input} name='imageUrl' id="imageUrl" value={car.imageUrl} onChange={editCarInfo} />
-                                            <p className={style.info}>Picture URL.</p>
+                                            {errors.imageUrl ?
+                                                <p className={style.validation}>{errors.imageUrl}</p>
+                                                :
+                                                <p className={style.info}>Picture URL.</p>
+                                            }
                                         </div>
 
                                         <label htmlFor="description" className="label">Opinion</label>
                                         <div className={style.row}>
                                             <textarea className={style.inputText} name='description' id="description" value={car.description} onChange={editCarInfo}></textarea>
-                                            <p className={style.info}>At least 10 chars.</p>
+                                            {errors.description ?
+                                                <p className={style.validation}>{errors.description}</p>
+                                                :
+                                                <p className={style.info}>At least 10 chars.</p>
+                                            }
                                         </div>
 
                                         <button className={style.button} type="submit">Submit</button>

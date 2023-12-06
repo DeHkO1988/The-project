@@ -44,9 +44,8 @@ export const CarProvider = ({
 
     };
 
-    const editCarHandler = async (e, car, carId) => {
-        e.preventDefault();
-
+    const editCarHandler = async (car, carId) => {
+        
         if (car.brand.length < 5) {
             alert('brand length too short');
             return;
