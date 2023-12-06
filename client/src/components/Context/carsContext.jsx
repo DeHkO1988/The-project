@@ -16,8 +16,10 @@ export const CarProvider = ({
     const { user } = useContext(UserContext);
 
     useEffect(() => {
+        setLoader(true);
         carService.getAll()
-            .then(result => setAllCars(result));
+            .then(result => setAllCars(result))
+            .finally(() => setLoader(false));
     }, []);
 
     const createCarHandler = async (data) => {
@@ -34,7 +36,7 @@ export const CarProvider = ({
 
         } catch (error) {
 
-            alert (error);
+            alert(error);
 
         } finally {
 
@@ -45,44 +47,30 @@ export const CarProvider = ({
     };
 
     const editCarHandler = async (car, carId) => {
-        
-        if (car.brand.length < 5) {
-            alert('brand length too short');
+
+        setLoader(true);
+
+        try {
+            const editedCar = await carService.edit(car, user, carId);
+
+            const newState = allCars.map(x => x._id === editedCar._id ? editedCar : x);
+
+            setAllCars(state => newState);
+
+            navigate(`/details/${carId}`);
+
+        } catch (error) {
+
+            alert(error);
+
             return;
-        };
 
-        if (car.fuel.length < 5) {
-            alert('fuel length too short');
-            return;
-        };
+        } finally {
 
-        if (car.mileage <= 0) {
-            alert('have to be positive number');
-            return;
-        };
+            setLoader(false);
 
-        if (car.registration < 1900 || car.registration > 2023) {
-            alert('Year of manufacture between 1900 and 2023');
-            return;
-        };
+        }
 
-        if (car.image) {
-            alert('');
-            return;
-        };
-
-        if (car.description.length < 10) {
-            alert('Opinion at least 10 chars.');
-            return;
-        };
-
-        const editedCar = await carService.edit(car, user, carId);
-
-        const newState = allCars.map(x => x._id === editedCar._id ? editedCar : x);
-
-        setAllCars(state => newState);
-
-        navigate(`/details/${carId}`);
     };
 
     const deleteCarHandler = (carId) => {

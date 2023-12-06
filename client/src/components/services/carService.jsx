@@ -84,28 +84,18 @@ export const create = async (data, user) => {
 
 export const edit = async (data, user, id) => {
 
-    try {
+    const editedCar = await fetch(`${baseUrl}/${id}`, {
+        method: 'PUT',
+        headers: {
+            'Content-Type': 'application/json',
+            'X-Authorization': `${user.accessToken}`,
+        },
+        body: JSON.stringify(data)
+    });
 
-        const editedCar = await fetch(`${baseUrl}/${id}`, {
-            method: 'PUT',
-            headers: {
-                'Content-Type': 'application/json',
-                'X-Authorization': `${user.accessToken}`,
-            },
-            body: JSON.stringify(data)
-        });
+    const result = await editedCar.json();
 
-        const result = await editedCar.json();
-
-        return result;
-
-    } catch (error) {
-
-        alert(error);
-
-        return;
-
-    };
+    return result;
 
 };
 
