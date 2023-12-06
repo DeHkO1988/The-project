@@ -19,7 +19,6 @@ export const Login = ({
         }
     }, []);
 
-
     const loginData = (e) => {
         setLogin(({ ...login, [e.target.name]: e.target.value }));
     };
@@ -27,9 +26,6 @@ export const Login = ({
     const onSubmit = (e) => {
         loginHandler(e, login);
     };
-
-
-
 
     return (
         <div className="page-wrap">
