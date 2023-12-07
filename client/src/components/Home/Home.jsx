@@ -7,14 +7,12 @@ export const Home = () => {
                     <div className="mid-panel">
                         <div className="mid-panel-content">
                             <div className="title">
-                                <h1>Aliquam arcu arcu aliquam eu</h1>
+                                <h1>Share your personal opinion about car brands and model that you are interested in</h1>
                             </div>
                             <div className="border"></div>
-                            <h2>Subheading goes here</h2>
-                            <p>Phasellus non arcu id nisi ullamcorper varius. In quis vehicula enim. Maecenas gravida metus
-                                vitae tortor
-                                cursus sed mattis velit congue. Cras id nisi massa, sed feugiat est. </p>
-                            <img className="img" src="https://imageio.forbes.com/specials-images/imageserve/5d35eacaf1176b0008974b54/2020-Chevrolet-Corvette-Stingray/0x0.jpg?format=jpg&crop=4560,2565,x790,y784,safe&width=960" />
+                            <h2>Hello all be free to share what ever experience yoy have</h2>
+                            <p>Registering will allow you to create, update and delete items in catalog part of the block. </p>
+                            <img className="img" src="https://www.carandbike.com/_next/image?url=https%3A%2F%2Fc.ndtvimg.com%2F2022-01%2F0d2m0qkg_car_625x300_12_January_22.jpg&w=750&q=75" />
                         </div>
                     </div>
 

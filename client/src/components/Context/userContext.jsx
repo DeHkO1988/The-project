@@ -71,8 +71,6 @@ export const UserProvider = ({
 
             alert(error);
 
-            navigate('abv');
-
             return;
 
         } finally {

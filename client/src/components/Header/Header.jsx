@@ -36,7 +36,7 @@ export const Header = ({
 
 
                         <li className="marLeft20">
-                            <Link to={"/catalog"}>Catalog</Link>
+                            <Link to={"/catalog"}>Posts</Link>
                         </li>
 
                         <li >

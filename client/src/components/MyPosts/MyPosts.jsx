@@ -28,7 +28,7 @@ export const MyPosts = () => {
     return (
         <div className="panel-wrap">
             <div className="top-content">
-                <h1>here are All {user.username} posts</h1>
+                <h1>{user.username} personal posts</h1>
             </div>
 
             {loader ? <MyPostLoader /> : <MyPostsItems myPost={myPost} />}

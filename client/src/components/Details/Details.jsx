@@ -1,4 +1,4 @@
-import { useParams, Link, useNavigate } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import { useContext } from "react";
 import { UserContext } from "../Context/userContext";
 import { CarContext } from "../Context/carsContext";
@@ -13,13 +13,10 @@ export const Details = () => {
     const [car, setCar] = useState({});
     const [likes, setLikes] = useState([]);
     const [loader, setLoader] = useState(false);
-    const navigate = useNavigate();
 
     const { carId } = useParams();
     const { user } = useContext(UserContext);
     const { deleteCarHandler } = useContext(CarContext);
-    //const { likeHandler } = useContext(LikeContext);
-
 
     useEffect(() => {
         setLoader(true);
@@ -30,11 +27,6 @@ export const Details = () => {
             .then(res => setLikes(res));
 
     }, [carId]);
-
-    // useEffect(() => {
-    //     likeService.getAllLikes(carId)
-    //         .then(res => setLikes(res));
-    // }, [carId]);
 
     const likeHandler = async (e) => {
         e.preventDefault();
@@ -65,6 +57,7 @@ export const Details = () => {
 
 
                 <div className="primary-content">
+
                     {loader ? <Loader />
                         :
                         <div className="mid-panel marginTop">
@@ -81,8 +74,6 @@ export const Details = () => {
                                     <h2>Owner: {car.owner}</h2>
                                     <p><strong>Year of manufacture:</strong> {car.registration} year</p>
                                     <p><strong>Fuel type:</strong> {car.fuel}</p>
-                                    {/* <p><strong>Type:</strong> {car.type}</p> */}
-                                    {/* <p><strong>Price:</strong> {car.price} $</p> */}
                                     <p><strong>Mileage:</strong> {car.mileage} km</p>
 
                                     <p className="padBottom"><strong>Opinion:</strong> {car.description}</p>
@@ -96,13 +87,6 @@ export const Details = () => {
                                     </>
                                 )
                                 }
-                                {/* <>
-                        {user?._id === car._ownerId && <Link to={`/edit/${car._id}`}><button className="button">Edit</button></Link>}
-                        {user?._id === car._ownerId && <button className="button" onClick={() => deleteCarHandler(car._id)}>Delete</button>}
-
-                        {user?._id !== car._ownerId && <Link to={`/buy/${car._id}`}><button className="button" >Buy</button></Link>}
-                    </> */}
-
 
                             </div>
                         </div>

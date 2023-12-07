@@ -11,7 +11,7 @@ export const Catalog = () => {
     return (
         <div className="panel-wrap">
             <div className="top-content">
-                <h1>here are All car offers</h1>
+                <h1>Blog Posts</h1>
             </div>
             {loader ? <CatalogLoader />
                 :

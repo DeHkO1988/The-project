@@ -81,7 +81,7 @@ export const Create = () => {
                                             {error.mileage ?
                                                 <p className={style.validation}>{error.mileage}</p>
                                                 :
-                                                <p className={style.info}>Have to be number.</p>
+                                                <p className={style.info}>Have to be positive number.</p>
                                             }
                                         </div>
 
