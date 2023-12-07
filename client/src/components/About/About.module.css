@@ -1,3 +1,8 @@
-.text {text-align: justify;}
+.text {
+    text-align: justify;
+}
 
-.textCenter {text-align: center; margin-top: 50px;}
+.textCenter {
+    text-align: center;
+    margin-top: 50px;
+}

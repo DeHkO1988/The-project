@@ -19,12 +19,6 @@ export const Header = ({
                     <div className={style.logoWrap}>
                         <img src="/images/car-auto-line-icon-simple-modern-flat-illustration-for-mobile-app-website-or-desktop-app-on-gray-background-vector.jpg"/>
                         <h2>CAR BloG</h2>
-                        {/* <div className={style.logoWrapLogo}></div> */}
-                        
-                        {/* <div className={style.logo}> */}
-                        {/* <h2>your slogan</h2> */}
-
-                        {/* </div> */}
                     </div>
                 </div>
             </Link>
