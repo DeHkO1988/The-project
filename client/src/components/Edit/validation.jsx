@@ -6,13 +6,13 @@ export const validation = (data) => {
     const imgPattern = /^https|^http/;
 
     if (data.brand.length < 5) {
-        result.brand = 'Brand length too short.';
+        result.brand = 'At least 5 chars.';
     } else {
         delete result.brand;
     };
 
     if (data.fuel.length < 5) {
-        result.fuel = 'Fuel length too short.';
+        result.fuel = 'At least 5 chars.';
     } else {
         delete result.fuel;
     };
@@ -24,7 +24,7 @@ export const validation = (data) => {
     };
 
     if (data.registration < 1900 || data.registration > 2023) {
-        result.registration = 'Year of manufacture between 1900 and 2023.';
+        result.registration = 'Number between 1900 and 2023.';
     } else {
         delete result.registration;
     };
@@ -36,7 +36,7 @@ export const validation = (data) => {
     }
 
     if (data.description.length < 10) {
-        result.description = 'Opinion at least 10 chars.';
+        result.description = 'At least 10 chars.';
     } else {
         delete result.description;
     }

@@ -48,7 +48,7 @@ export const EditForm = ({
                                     {errors.mileage ?
                                         <p className={style.validation}>{errors.mileage}</p>
                                         :
-                                        <p className={style.info}>Have to be number.</p>
+                                        <p className={style.info}>Have to be positive number.</p>
                                     }
                                 </div>
 
@@ -68,7 +68,7 @@ export const EditForm = ({
                                     {errors.imageUrl ?
                                         <p className={style.validation}>{errors.imageUrl}</p>
                                         :
-                                        <p className={style.info}>Picture URL.</p>
+                                        <p className={style.info}>URL Have to start whit http or https.</p>
                                     }
                                 </div>
 
