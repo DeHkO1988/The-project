@@ -21,7 +21,7 @@ export const Register = () => {
 
     const setInfoForRegistration = (e) => {
 
-        setRegisterData(state => ({ ...state, [e.target.name]: e.target.value }));
+        setRegisterData(state => ({ ...state, [e.target.name]: e.target.value.trim() }));
 
     };
 
@@ -43,7 +43,7 @@ export const Register = () => {
         <section className="page-wrap">
             <div className="page-wrapper">
                 <div className="primary-content">
-                    
+
                     {loader ? <Loader />
                         :
                         <div className="mid-panel">
@@ -52,53 +52,37 @@ export const Register = () => {
                                     <div className="title">
                                         <h1 className={style.border}>Registration</h1>
                                     </div>
+                                    
                                     <div className="">
 
                                         <label htmlFor="email" className="">E-mail</label>
                                         <div className={style.row}>
                                             <input type="text" className={style.input} name="email" id="email" autoComplete="off" value={registerData.email} onChange={setInfoForRegistration} />
-                                            {errors.email ?
-                                                <p className={style.error}> {errors.email} </p>
-                                                :
-                                                <p className={style.info}>Valid e-mail address.</p>
-                                            }
+                                            <p className={errors.email ? style.error : style.info}>Valid e-mail address.</p>
                                         </div>
 
                                         <label htmlFor="username" className="">Username</label>
                                         <div className="row">
                                             <input type="text" className={style.input} name="username" id="username" autoComplete="off" value={registerData.username} onChange={setInfoForRegistration} />
-                                            {errors.username ?
-                                                <p className={style.error}> {errors.username} </p>
-                                                :
-                                                <p className={style.info}>More then 3 chars.</p>
-                                            }
+                                            <p className={errors.username ? style.error : style.info}>More then 3 chars.</p>
+
                                         </div>
 
                                         <label htmlFor="password" className="">Password</label>
                                         <div className="row">
                                             <input type="password" className={style.input} name="password" id="password" autoComplete="off" value={registerData.password} onChange={setInfoForRegistration} />
-                                            {errors.password ?
-                                                <p className={style.error}> {errors.password} </p>
-                                                :
-                                                <p className={style.info}>More then 4 chars.</p>
-                                            }
+                                            <p className={errors.password ? style.error : style.info}>More then 4 chars.</p>
                                         </div>
 
                                         <label htmlFor="repeatPassword" className="">Repeat password</label>
                                         <div className="row">
                                             <input type="password" className={style.input} name="repeatPassword" id="repeatPassword" autoComplete="off" value={registerData.repeatPassword} onChange={setInfoForRegistration} />
-                                            {errors.repeatPassword ?
-                                                <p className={style.error}> {errors.repeatPassword} </p>
-                                                :
-                                                <p className={style.info}>Same as password.</p>
-                                            }
+                                            <p className={errors.repeatPassword ? style.error : style.info}>Same as password.</p>
                                         </div>
-
 
                                         <button className={style.button} type="submit">Register</button>
 
                                     </div>
-
 
                                 </div>
                             </form>

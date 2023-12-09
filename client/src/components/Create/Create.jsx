@@ -58,61 +58,37 @@ export const Create = () => {
                                         <label htmlFor="brand" className="label">Brand</label>
                                         <div className={style.row}>
                                             <input type="text" className={style.input} name='brand' id="brand" value={values.brand} onChange={createCarInfo} />
-                                            {error.brand ?
-                                                <p className={style.validation}>{error.brand}</p>
-                                                :
-                                                <p className={style.info}>At least 5 chars.</p>
-                                            }
+                                            <p className={error.brand ? style.validation : style.info}>At least 5 chars.</p>
                                         </div>
 
                                         <label htmlFor="fuel" className="label">Fuel type</label>
                                         <div className={style.row}>
                                             <input type="text" className={style.input} name='fuel' id="fuel" value={values.fuel} onChange={createCarInfo} />
-                                            {error.fuel ?
-                                                <p className={style.validation}>{error.fuel}</p>
-                                                :
-                                                <p className={style.info}>At least 5 chars.</p>
-                                            }
+                                            <p className={error.fuel ? style.validation : style.info}>At least 5 chars.</p>
                                         </div>
 
                                         <label htmlFor="mileage" className="label">Mileage</label>
                                         <div className={style.row}>
                                             <input type="number" className={style.input} name='mileage' id="mileage" value={values.mileage} onChange={createCarInfo} />
-                                            {error.mileage ?
-                                                <p className={style.validation}>{error.mileage}</p>
-                                                :
-                                                <p className={style.info}>Have to be positive number.</p>
-                                            }
+                                            <p className={error.mileage ? style.validation : style.info}>Have to be positive number.</p>
                                         </div>
 
                                         <label htmlFor="registration" className="label">Year of manufacture</label>
                                         <div className={style.row}>
                                             <input type="number" className={style.input} name='registration' id="registration" value={values.registration} onChange={createCarInfo} />
-                                            {error.registration ?
-                                                <p className={style.validation}>{error.registration}</p>
-                                                :
-                                                <p className={style.info}>Number between 1900 and 2023.</p>
-                                            }
+                                            <p className={error.registration ? style.validation : style.info}>Number between 1900 and 2023.</p>
                                         </div>
 
                                         <label htmlFor="imageUrl" className="label">Image</label>
                                         <div className={style.row}>
                                             <input type="text" className={style.input} name='imageUrl' id="imageUrl" value={values.imageUrl} onChange={createCarInfo} />
-                                            {error.imageUrl ?
-                                                <p className={style.validation}>{error.imageUrl}</p>
-                                                :
-                                                <p className={style.info}>Picture URL.</p>
-                                            }
+                                            <p className={error.imageUrl ? style.validation : style.info}>Picture URL.</p>
                                         </div>
 
                                         <label htmlFor="description" className="label">Opinion</label>
                                         <div className={style.row}>
                                             <textarea className={style.inputText} name='description' id="description" value={values.description} onChange={createCarInfo}></textarea>
-                                            {error.description ?
-                                                <p className={style.validation}>{error.description}</p>
-                                                :
-                                                <p className={style.info}>At least 10 chars.</p>
-                                            }
+                                            <p className={error.description ? style.validation : style.info}>At least 10 chars.</p>
                                         </div>
 
                                         <button className={style.button} type="submit">Submit</button>

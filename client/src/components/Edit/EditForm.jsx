@@ -25,61 +25,37 @@ export const EditForm = ({
                                 <label htmlFor="brand" className="label">Brand</label>
                                 <div className={style.row}>
                                     <input type="text" className={style.input} name='brand' id="brand" value={car.brand} onChange={editCarInfo} />
-                                    {errors.brand ?
-                                        <p className={style.validation}>{errors.brand}</p>
-                                        :
-                                        <p className={style.info}>At least 5 chars.</p>
-                                    }
+                                    <p className={errors.brand ? style.validation : style.info}>At least 5 chars.</p>
                                 </div>
 
                                 <label htmlFor="fuel" className="label">Fuel type</label>
                                 <div className={style.row}>
                                     <input type="text" className={style.input} name='fuel' id="fuel" value={car.fuel} onChange={editCarInfo} />
-                                    {errors.fuel ?
-                                        <p className={style.validation}>{errors.fuel}</p>
-                                        :
-                                        <p className={style.info}>At least 5 chars.</p>
-                                    }
+                                    <p className={errors.fuel ? style.validation : style.info}>At least 5 chars.</p>
                                 </div>
 
                                 <label htmlFor="mileage" className="label">Mileage</label>
                                 <div className={style.row}>
                                     <input type="number" className={style.input} name='mileage' id="mileage" value={car.mileage} onChange={editCarInfo} />
-                                    {errors.mileage ?
-                                        <p className={style.validation}>{errors.mileage}</p>
-                                        :
-                                        <p className={style.info}>Have to be positive number.</p>
-                                    }
+                                    <p className={errors.mileage ? style.validation : style.info}>Have to be positive number.</p>
                                 </div>
 
                                 <label htmlFor="registration" className="label">Year of manufacture</label>
                                 <div className={style.row}>
                                     <input type="number" className={style.input} name='registration' id="registration" value={car.registration} onChange={editCarInfo} />
-                                    {errors.registration ?
-                                        <p className={style.validation}>{errors.registration}</p>
-                                        :
-                                        <p className={style.info}>Number between 1900 and 2023.</p>
-                                    }
+                                    <p className={errors.registration ? style.validation : style.info}>Number between 1900 and 2023.</p>
                                 </div>
 
                                 <label htmlFor="imageUrl" className="label">Image</label>
                                 <div className={style.row}>
                                     <input type="text" className={style.input} name='imageUrl' id="imageUrl" value={car.imageUrl} onChange={editCarInfo} />
-                                    {errors.imageUrl ?
-                                        <p className={style.validation}>{errors.imageUrl}</p>
-                                        :
-                                        <p className={style.info}>URL Have to start whit http or https.</p>
-                                    }
+                                    <p className={errors.imageUrl ? style.validation : style.info}>URL Have to start whit http or https.</p>
                                 </div>
 
                                 <label htmlFor="description" className="label">Opinion</label>
                                 <div className={style.row}>
                                     <textarea className={style.inputText} name='description' id="description" value={car.description} onChange={editCarInfo}></textarea>
-                                    {errors.description ?
-                                        <p className={style.validation}>{errors.description}</p>
-                                        :
-                                        <p className={style.info}>At least 10 chars.</p>
-                                    }
+                                    <p className={errors.description ? style.validation : style.info}>At least 10 chars.</p>
                                 </div>
 
                                 <button className={style.button} type="submit">Submit</button>

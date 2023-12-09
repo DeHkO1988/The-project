@@ -21,7 +21,7 @@ export const Login = ({
     }, []);
 
     const loginData = (e) => {
-        setLogin(({ ...login, [e.target.name]: e.target.value }));
+        setLogin(({ ...login, [e.target.name]: e.target.value.trim() }));
     };
 
     const onSubmit = (e) => {
